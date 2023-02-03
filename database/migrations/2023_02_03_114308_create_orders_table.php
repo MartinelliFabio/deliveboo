@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->increments('nr_ord')->unique();
+            $table->smallInteger('nr_ord')->unique();
             $table->string('slug');
             $table->float('price_tot', 6, 2)->unsigned();
             $table->string('email', 100)->unique()->required();
             $table->string('address', 255)->required();
-            $table->tinyInteger('phone', 50);
+            $table->tinyInteger('phone');
             $table->string('name', 100);
             $table->string('surname', 100);
             $table->string('status', 50);

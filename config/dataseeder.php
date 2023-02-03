@@ -278,7 +278,7 @@ return [
             "name" => "patatine",
             "price" => "2.90",
             "available" => 1,
-            "description" => "patatine fritte",
+            "ingredients" => "patatine fritte",
             "image" => "https://rs-menus-api.roocdn.com/images/af746bd6-c814-4508-ae80-951ddecd4a8a/image.jpeg?width=543&height=305&auto=webp&format=jpg&fit=crop",
         ],
         [
@@ -286,7 +286,7 @@ return [
             "name" => "grand crispy McBacon",
             "price" => "7.10",
             "available" => 1,
-            "description" => "bacon, hamburger, cheddar, salsa crispy",
+            "ingredients" => "bacon, hamburger, cheddar, salsa crispy",
             "image" => "https://rs-menus-api.roocdn.com/images/a9618a3d-ea13-4f45-945c-936b67fd673d/image.jpeg?width=560&height=315&auto=webp&format=jpg&fit=crop",
         ],
         [
@@ -294,7 +294,7 @@ return [
             "name" => "coca-cola",
             "price" => "3.00",
             "available" => 1,
-            "description" => "liquido gassoso zuccherato",
+            "ingredients" => "liquido gassoso zuccherato",
             "image" => "https://rs-menus-api.roocdn.com/images/660ad39f-d513-42fc-b27e-8f083d548fdf/image.jpeg?width=543&height=305&auto=webp&format=jpg&fit=crop",
         ],
         [
@@ -302,7 +302,7 @@ return [
             "name" => "pizza margherita",
             "price" => "5.00",
             "available" => 1,
-            "description" => "salsa di pomodoro, fiordilatte di agerola, basilico",
+            "ingredients" => "salsa di pomodoro, fiordilatte di agerola, basilico",
             "image" => "https://italianspizza.it/wp-content/uploads/2022/06/FAMILY-PIZZA-MARGHERITA-online-pizza-sconti-eventi-feste-delivery-consegna-a-domicilio-san-colombano-al-lambro-lambrinia-monteleone-lodi-milano-italia.png",
         ],
         [
@@ -310,7 +310,7 @@ return [
             "name" => "pizza patatine e wurstel",
             "price" => "7.50",
             "available" => 1,
-            "description" => "salsa di pomodoro, patatine fritte, wurstel",
+            "ingredients" => "salsa di pomodoro, patatine fritte, wurstel",
             "image" => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6EfKp4WEmv4ED2UzSFHg3Dq86reMHi97FBHMZG7cMJD0zArx7u_opsvoBkwkWo1w4UIs&usqp=CAU",
         ],
         [
@@ -318,7 +318,7 @@ return [
             "name" => "pizza quattro stagioni",
             "price" => "8.00",
             "available" => 1,
-            "description" => "salsa di pomodoro, funghi, carciofi, peperoni, prosciutto cotto",
+            "ingredients" => "salsa di pomodoro, funghi, carciofi, peperoni, prosciutto cotto",
             "image" => "https://upload.wikimedia.org/wikipedia/commons/4/42/Pizza_Quattro_Stagioni_transparent.png?width=858&height=542",
         ],
         [
@@ -326,7 +326,7 @@ return [
             "name" => "sangria tradicional rossa",
             "price" => "13.00",
             "available" => 1,
-            "description" => "vino rosso, brandy, cointreau, gin, frutta",
+            "ingredients" => "vino rosso, brandy, cointreau, gin, frutta",
             "image" => "https://banner2.cleanpng.com/20180701/bzg/kisspng-sangria-red-wine-juice-cocktail-tragos-5b386f2fd2ac39.2934068115304251358629.jpg",
         ],
         [
@@ -334,7 +334,7 @@ return [
             "name" => "paella di marisco",
             "price" => "18.00",
             "available" => 1,
-            "description" => "frutti di mare",
+            "ingredients" => "frutti di mare",
             "image" => "https://www.saporedimare.it/wp-content/uploads/elementor/thumbs/Paella-carne-pesce-plbjf523mkqld4kaarqymwykuj7dw7dh0e688bjrf2.png",
         ],
         [
@@ -342,7 +342,7 @@ return [
             "name" => "gazpacho andaluz",
             "price" => "8.90",
             "available" => 1,
-            "description" => "zuppa fredda di verdure crude e pomodoro",
+            "ingredients" => "zuppa fredda di verdure crude e pomodoro",
             "image" => "https://yimages360.s3.amazonaws.com/products/2021/06/60b8e7a4bef2d/1x.jpg",
         ],
         [
@@ -350,7 +350,7 @@ return [
             "name" => "Cappuccino",
             "price" => "2.60",
             "available" => 1,
-            "description" => "Latte caldo ed espresso con una soffice e golosa crema di latte",
+            "ingredients" => "Latte caldo ed espresso con una soffice e golosa crema di latte",
             "image" => "https://f.roocdn.com/images/menu_items/98014100/item-image.jpg?width=543&height=305&auto=webp&format=jpg&v=1674467059&fit=crop",
         ],
         [
@@ -358,7 +358,7 @@ return [
             "name" => "Caffe Americano",
             "price" => "2.50",
             "available" => 1,
-            "description" => "Caffe espresso e acqua calda come la classica ricetta americana",
+            "ingredients" => "Caffe espresso e acqua calda come la classica ricetta americana",
             "image" => "https://f.roocdn.com/images/menu_items/98014104/item-image.jpg?width=543&height=305&auto=webp&format=jpg&v=1674467059&fit=crop",
         ],
         [
@@ -366,7 +366,7 @@ return [
             "name" => "Toast Classico",
             "price" => "6.90",
             "available" => 1,
-            "description" => "Pane toast con farina integrale, prosciutto cotto alta qualita, edamer",
+            "ingredients" => "Pane toast con farina integrale, prosciutto cotto alta qualita, edamer",
             "image" => "https://f.roocdn.com/images/menu_items/98014029/item-image.jpg?width=560&height=315&auto=webp&format=jpg&v=1674467059&fit=crop",
         ],
         [
@@ -374,7 +374,7 @@ return [
             "name" => "Riso alla cantonese",
             "price" => "4.00",
             "available" => 1,
-            "description" => "Riso saltato con prosciutto, piselli ed uovo",
+            "ingredients" => "Riso saltato con prosciutto, piselli ed uovo",
             "image" => "https://images.fidhouse.com/fidelitynews/wp-content/uploads/sites/6/2016/03/1456829520_d14699eab543f3b24be96d83a9fa22b34846fce0-321023390.jpg",
         ],
         [
@@ -382,7 +382,7 @@ return [
             "name" => "Onigiri spicy",
             "price" => "5.00",
             "available" => 1,
-            "description" => "Salmone crudo e salsa maionese piccante",
+            "ingredients" => "Salmone crudo e salsa maionese piccante",
             "image" => "https://rs-menus-api.roocdn.com/images/ab985cb8-fb29-4cad-870d-18883a4d23eb/image.jpeg?width=560&height=315&auto=webp&format=jpg&fit=crop",
         ],
         [
@@ -390,7 +390,7 @@ return [
             "name" => "Sashimi sake",
             "price" => "5.00",
             "available" => 1,
-            "description" => "Fettine di salmone crudo",
+            "ingredients" => "Fettine di salmone crudo",
             "image" => "https://rs-menus-api.roocdn.com/images/7824972b-dbf0-4924-936e-2054078680c8/image.jpeg?width=560&height=315&auto=webp&format=jpg&fit=crop",
         ],
         [
@@ -398,7 +398,7 @@ return [
             "name" => "Panino Kebab",
             "price" => "6.00",
             "available" => 1,
-            "description" => "Kebab, insalata, pomodoro, salsa piccante, cipolla , salsa yogurt",
+            "ingredients" => "Kebab, insalata, pomodoro, salsa piccante, cipolla , salsa yogurt",
             "image" => "https://d2j6dbq0eux0bg.cloudfront.net/images/62400814/2367230254.jpg",
         ],
         [
@@ -406,7 +406,7 @@ return [
             "name" => "Arrotolato Kebab",
             "price" => "6.00",
             "available" => 1,
-            "description" => "Kebab, insalata, pomodoro, salsa piccante, cipolla , salsa yogurt",
+            "ingredients" => "Kebab, insalata, pomodoro, salsa piccante, cipolla , salsa yogurt",
             "image" => "https://qualitifood.com/wp-content/uploads/brizy/imgs/piada-kebab-tagliato-545x545x0x68x545x409x1562337866.png",
         ],
         [
@@ -414,7 +414,7 @@ return [
             "name" => "Focaccia bianca",
             "price" => "4.00",
             "available" => 1,
-            "description" => "Focaccia bianca",
+            "ingredients" => "Focaccia bianca",
             "image" => "https://content.dambros.it/uploads/2016/04/19103803/0000121304.jpg",
         ],
         [
@@ -422,7 +422,7 @@ return [
             "name" => "Bacon King",
             "price" => "8.10",
             "available" => 1,
-            "description" => "Due hamburger di manzo alla griglia con 8 fette di bacon, cheddar, ketchup e maionese",
+            "ingredients" => "Due hamburger di manzo alla griglia con 8 fette di bacon, cheddar, ketchup e maionese",
             "image" => "https://f.roocdn.com/images/menu_items/19526413/item-image.jpg?width=543&height=305&auto=webp&format=jpg&v=1675186254&fit=crop",
         ],
         [
@@ -430,7 +430,7 @@ return [
             "name" => "Sprite",
             "price" => "3.80",
             "available" => 1,
-            "description" => "Bibita Sprite",
+            "ingredients" => "Bibita Sprite",
             "image" => "https://f.roocdn.com/images/menu_items/19526353/item-image.jpg?width=560&height=315&auto=webp&format=jpg&v=1675186254&fit=crop",
         ],
         [
@@ -438,7 +438,7 @@ return [
             "name" => "Bacon king fries con cheddar sauce e bacon bits",
             "price" => "4.40",
             "available" => 1,
-            "description" => "patatine fritte con coriandoli di bacon e salsa cheddar",
+            "ingredients" => "patatine fritte con coriandoli di bacon e salsa cheddar",
             "image" => "https://f.roocdn.com/images/menu_items/182573093/item-image.jpg?width=560&height=315&auto=webp&format=jpg&v=1675186254&fit=crop",
         ],
         [
@@ -446,7 +446,7 @@ return [
             "name" => "El Pulled Burrito",
             "price" => "13.50",
             "available" => 1,
-            "description" => "Riso basmati, pulled pork, fagioli rossi, pico de gallo, panna acida e guacamole",
+            "ingredients" => "Riso basmati, pulled pork, fagioli rossi, pico de gallo, panna acida e guacamole",
             "image" => "https://rs-menus-api.roocdn.com/images/88b43cfe-184d-4316-a972-7c2353dddb20/image.jpeg?width=560&height=315&auto=webp&format=jpg&fit=crop",
         ],
         [
@@ -454,7 +454,7 @@ return [
             "name" => "Taco de Chili",
             "price" => "12.00",
             "available" => 1,
-            "description" => "Base di lattuga, chili con carne, pico de gallo e guacamole",
+            "ingredients" => "Base di lattuga, chili con carne, pico de gallo e guacamole",
             "image" => "https://rs-menus-api.roocdn.com/images/b4b78fa1-8c5e-48b7-b277-13ff33082e52/image.jpeg?width=543&height=305&auto=webp&format=jpg&fit=crop",
         ],
         [
@@ -462,7 +462,7 @@ return [
             "name" => "Nachos",
             "price" => "7.00",
             "available" => 1,
-            "description" => "Tortillas di mais",
+            "ingredients" => "Tortillas di mais",
             "image" => "https://rs-menus-api.roocdn.com/images/a68d3915-2e11-4e0a-bdd9-210ec9afd991/image.jpeg?width=560&height=315&auto=webp&format=jpg&fit=crop",
         ],
         [
@@ -470,7 +470,7 @@ return [
             "name" => "Manzo con cinque aromi in salsa piccante",
             "price" => "11.00",
             "available" => 1,
-            "description" => "Manzo",
+            "ingredients" => "Manzo",
             "image" => "https://rs-menus-api.roocdn.com/images/a68d3915-2e11-4e0a-bdd9-210ec9afd991/image.jpeg?width=560&height=315&auto=webp&format=jpg&fit=crop",
         ],
         [
@@ -478,7 +478,7 @@ return [
             "name" => "Ravioli",
             "price" => "6.00",
             "available" => 1,
-            "description" => "Ravioli di maiale",
+            "ingredients" => "Ravioli di maiale",
             "image" => "https://barcalcagno.it/sushi/wp-content/uploads/2019/07/RAVIOLI-R1-R2-.jpg",
         ],
         [
@@ -486,7 +486,7 @@ return [
             "name" => "Gamberi",
             "price" => "9.50",
             "available" => 1,
-            "description" => "sale e pepe",
+            "ingredients" => "sale e pepe",
             "image" => "https://www.sushiroyal.it/utenti/sushiroyal/uploads/img_6656.jpg",
         ],
         [
@@ -494,7 +494,7 @@ return [
             "name" => "Falafel con salsa allo yogurt",
             "price" => "8.50",
             "available" => 1,
-            "description" => "Falafel tradizionali con salsa allo yogurt",
+            "ingredients" => "Falafel tradizionali con salsa allo yogurt",
             "image" => "https://rs-menus-api.roocdn.com/images/4ec0a438-09c0-4b2d-aff6-7e55e0921f0b/image.jpeg?width=560&height=315&auto=webp&format=jpg&fit=crop",
         ],
         [
@@ -502,7 +502,7 @@ return [
             "name" => "Pita Gyros Falafel",
             "price" => "13.50",
             "available" => 1,
-            "description" => "Pita con falafel, hummus, pico de gallo, lattuga e salsa",
+            "ingredients" => "Pita con falafel, hummus, pico de gallo, lattuga e salsa",
             "image" => "https://rs-menus-api.roocdn.com/images/28401375-7661-4cdd-a7e5-dc3f2c3d586c/image.jpeg?width=560&height=315&auto=webp&format=jpg&fit=crop",
         ],
         [
@@ -510,7 +510,7 @@ return [
             "name" => "Sprite Vetro",
             "price" => "5.00",
             "available" => 1,
-            "description" => "Bibita Sprite",
+            "ingredients" => "Bibita Sprite",
             "image" => "https://rs-menus-api.roocdn.com/images/eed0caee-9113-4b7c-82ca-dca20d4ceec6/image.jpeg?width=560&height=315&auto=webp&format=jpg&fit=crop",
         ],
     ],
@@ -520,7 +520,7 @@ return [
     //         "name" => "",
     //         "price" => "",
     //         "available" => "",
-    //         "description" => "",
+    //         "ingredients" => "",
     //         "image" => "",
     //     ],
     //     [
@@ -528,7 +528,7 @@ return [
     //         "name" => "",
     //         "price" => "",
     //         "available" => "",
-    //         "description" => "",
+    //         "ingredients" => "",
     //         "image" => "",
     //     ],
     //     [
@@ -536,7 +536,7 @@ return [
     //         "name" => "",
     //         "price" => "",
     //         "available" => "",
-    //         "description" => "",
+    //         "ingredients" => "",
     //         "image" => "",
     //     ],
     // ],
