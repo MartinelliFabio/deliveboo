@@ -18,10 +18,10 @@ class TypeSeeder extends Seeder
     {
         $types = config('dataseeder.types');
         foreach ($types as $type) {
-            $type = new Type();
-            $type->name = $type['name'];
-            $type->slug =Str::slug($type->name, '-');
-            $type->save();
+            $new_type = new Type();
+            $new_type->name = $type;
+            $new_type->slug =Str::slug($new_type->name, '-');
+            $new_type->save();
         }
     }
 }

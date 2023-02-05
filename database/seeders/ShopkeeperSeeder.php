@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 use App\Models\Shopkeeper;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Storage;
+use Faker\Generator as Faker;
 
 class ShopkeeperSeeder extends Seeder
 {
@@ -15,29 +15,19 @@ class ShopkeeperSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
         $shopkeepers = config('dataseeder.shopkeepers');
-        foreach($shopkeepers as $shopkeeper) {
-            $shopkeeper = new Shopkeeper();
-            $shopkeeper->name = $shopkeeper['name'];
-            $shopkeeper->slug =Str::slug($shopkeeper->name, '-');
-            $shopkeeper->p_iva = $shopkeeper['p_iva'];
-            $shopkeeper->image = ShopkeeperSeeder::storeImage($shopkeeper['image']);
-            $shopkeeper->address = $shopkeeper['address'];
-            $shopkeeper->hour = $shopkeeper['hour'];
-            $shopkeeper->user_id = $shopkeeper['user_id'];
-            $shopkeeper->save();
+        foreach($shopkeepers as $key => $shopkeeper) {
+            $new_shopkeeper = new Shopkeeper();
+            $new_shopkeeper->name = $shopkeeper['name'];
+            $new_shopkeeper->slug = Str::slug($new_shopkeeper->name, '-');
+            $new_shopkeeper->p_iva = $shopkeeper['p_iva'];
+            $new_shopkeeper->image = $shopkeeper['image'];
+            $new_shopkeeper->address = $shopkeeper['address'];
+            $new_shopkeeper->hour = $shopkeeper['hour'];
+            $new_shopkeeper->user_id = $key + 1;
+            $new_shopkeeper->save();
         }
-    }
-
-    public static function storeimage($img){
-        $url = 'https:'.$img;
-        $contents = file_get_contents($url);
-        $temp_name = substr($url, strrpos($url, '/') + 1);
-        $name = substr($temp_name, 0, strpos($temp_name, '?')) .'.jpg';
-        $path = 'images/' . $name;
-        Storage::put('images/'.$name, $contents);
-        return $path;
     }
 }
