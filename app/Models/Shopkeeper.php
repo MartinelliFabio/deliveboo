@@ -16,6 +16,11 @@ class Shopkeeper extends Model
 
     protected $guarded = [];
 
+    public static function generateSlug($name)
+    {
+        return Str::slug($name, '-');
+    }
+
     public function types() :BelongsToMany{
         return $this->belongsToMany(Type::class);
     }

@@ -7,6 +7,10 @@ return [
             "address" => "Via Garibaldi 8, Torino",
             "image" => "https://rs-menus-api.roocdn.com/images/9c3c0ca6-f2d1-4445-be8e-6f846a49fd9e/image.jpeg?width=533&height=300&auto=webp&format=jpg&fit=crop",
             "hour" => "8:00am - 22:00pm",
+            'user_id' => 2,
+            'name_user' => 'utente2',
+            'email' => 'utente2@deliveboo.com',
+            'password' => 'password'
         ],
         [
             "name" => "Pizzeria Reginella",
@@ -14,6 +18,10 @@ return [
             "address" => "Via Garibaldi 8, Torino",
             "image" => "https://rs-menus-api.roocdn.com/images/79519415-0a4c-47b6-9ee5-0235af7c9022/image.jpeg?width=533&height=300&auto=webp&format=jpg&fit=crop",
             "hour" => "8:00am - 22:00pm",
+            'user_id' => 3,
+            'name_user' => 'utente3',
+            'email' => 'utente3@deliveboo.com',
+            'password' => 'password'
         ],
         [
             "name" => "Starbucks",
@@ -21,6 +29,10 @@ return [
             "address" => "Via Garibaldi 8, Torino",
             "image" => "https://rs-menus-api.roocdn.com/images/9c3c0ca6-f2d1-4445-be8e-6f846a49fd9e/image.jpeg?width=533&height=300&auto=webp&format=jpg&fit=crop",
             "hour" => "8:00am - 22:00pm",
+            'user_id' => 4,
+            'name_user' => 'utente4',
+            'email' => 'utente4@deliveboo.com',
+            'password' => 'password'
         ],
         [
             "name" => "Sushi Club",
@@ -28,6 +40,10 @@ return [
             "address" => "Via Garibaldi 8, Torino",
             "image" => "https://www.mizusushi.it/wp-content/uploads/2020/10/026_1-scaled.jpg",
             "hour" => "8:00am - 22:00pm",
+            'user_id' => 5,
+            'name_user' => 'utente5',
+            'email' => 'utente5@deliveboo.com',
+            'password' => 'password'
         ],
         [
             "name" => "Principe di Kebab Ali baba",
@@ -35,6 +51,10 @@ return [
             "address" => "Via Garibaldi 8, Torino",
             "image" => "https://media-cdn.tripadvisor.com/media/photo-s/0e/50/98/36/ali-baba-doner-kebab.jpg",
             "hour" => "8:00am - 22:00pm",
+            'user_id' => 6,
+            'name_user' => 'utente6',
+            'email' => 'utente6@deliveboo.com',
+            'password' => 'password'
         ],
         [
             "name" => "Burger King",
@@ -42,6 +62,10 @@ return [
             "address" => "Via Garibaldi 8, Torino",
             "image" => "https://www.foodserviceweb.it/wp-content/uploads/sites/4/2021/01/burger-king-logo-rebrand-bk-jkr_dezeen_2364_social_0.jpg",
             "hour" => "8:00am - 22:00pm",
+            'user_id' => 7,
+            'name_user' => 'utente7',
+            'email' => 'utente7@deliveboo.com',
+            'password' => 'password'
         ],
         [
             "name" => "Burrito's Way",
@@ -49,6 +73,10 @@ return [
             "address" => "Via Garibaldi 8, Torino",
             "image" => "https://www.foodserviceweb.it/wp-content/uploads/sites/4/2021/01/burger-king-logo-rebrand-bk-jkr_dezeen_2364_social_0.jpg",
             "hour" => "8:00am - 22:00pm",
+            'user_id' => 8,
+            'name_user' => 'utente8',
+            'email' => 'utente8@deliveboo.com',
+            'password' => 'password'
         ],
         [
             "name" => "La Sangria",
@@ -56,6 +84,10 @@ return [
             "address" => "Via Garibaldi 8, Torino",
             "image" => "https://just-eat-prod-eu-res.cloudinary.com/image/upload/c_fill,f_auto,q_auto,w_450,h_450,d_it:cuisines:pizza-3.jpg/v1/it/restaurants/224023.jpg",
             "hour" => "8:00am - 22:00pm",
+            'user_id' => 9,
+            'name_user' => 'utente9',
+            'email' => 'utente9@deliveboo.com',
+            'password' => 'password'
         ],
         [
             "name" => "Chuan Xiang Ju Gastronomia Cinese",
@@ -63,6 +95,10 @@ return [
             "address" => "Via Garibaldi 8, Torino",
             "image" => "https://tb-static.uber.com/prod/image-proc/processed_images/253b22d7c39d15c2bfb1ff546aea6451/820883a48567670acbd720bc76391291.jpeg",
             "hour" => "8:00am - 22:00pm",
+            'user_id' => 10,
+            'name_user' => 'utente10',
+            'email' => 'utente10@deliveboo.com',
+            'password' => 'password'
         ],
         [
             "name" => "Mi prendi in Gyros",
@@ -70,6 +106,10 @@ return [
             "address" => "Via Garibaldi 8, Torino",
             "image" => "https://w7.pngwing.com/pngs/54/137/png-transparent-shawarma-gyro-doner-kebab-chicken-chicken-food-animals-recipe.png",
             "hour" => "8:00am - 22:00pm",
+            'user_id' => 11,
+            'name_user' => 'utente11',
+            'email' => 'utente11@deliveboo.com',
+            'password' => 'password'
         ],
     ],
     "types" => [
