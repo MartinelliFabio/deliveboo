@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Shopkeeper;
 use App\Http\Requests\StoreShopkeeperRequest;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateShopkeeperRequest;
 
 class ShopkeeperController extends Controller
@@ -15,7 +16,8 @@ class ShopkeeperController extends Controller
      */
     public function index()
     {
-        return view('admin.shopkeepers.index');
+        $shopkeepers= Shopkeeper::all();
+        return view('admin.shopkeepers.index', compact('shopkeepers'));
     }
 
     /**
