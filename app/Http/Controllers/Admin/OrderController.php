@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Order;
+use App\Models\Product;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use Illuminate\Support\Facades\Auth;
+
 
 class OrderController extends Controller
 {
@@ -16,7 +19,12 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::all();
+        if (Auth::user()->isAdmin()) {
+            $orders = Order::paginate(10);
+        }else{
+            $products = Product::find(Auth::user()->id);
+            $orders = Order::where('product_id')->get();
+        }
         return view('admin.orders.index', compact('orders'));
     }
 

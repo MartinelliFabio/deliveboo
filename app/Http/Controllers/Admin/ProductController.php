@@ -23,16 +23,17 @@ class ProductController extends Controller
     public function index()
     {
 
-        $products = Product::paginate(10);
+        // $products = Product::paginate(10);
+        // return view('admin.products.index', compact('products'));
+
+        if (Auth::user()->isAdmin()) {
+            $products = Product::paginate(10);
+        }else{
+            $shopkeeper = Shopkeeper::find(Auth::user()->id);
+            $userId = $shopkeeper->id;
+            $products = Product::where('shopkeeper_id', $userId)->paginate(10);
+        }
         return view('admin.products.index', compact('products'));
-        // if (Auth::user()->is_admin) {
-        //     $products = Product::paginate(10);
-        //     return view('admin.products.index', compact('products'));
-        // }else{
-        //     $shopkeeper = Shopkeeper::find(Auth::user()->id);
-        //     $products = $shopkeeper->products;
-        //     return view('admin.products.index', compact('products'));
-        // }
     }
 
     /**
@@ -74,7 +75,7 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         return view('admin.products.show', compact('product'));
-        
+
     }
 
     /**
@@ -110,7 +111,7 @@ class ProductController extends Controller
         }
         $updated = $product->name;
         $product->update($data);
-        
+
         return redirect()->route('admin.products.index')->with('message', "$updated updated successfully");
     }
 
