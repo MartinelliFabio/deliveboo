@@ -18,10 +18,11 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     *
      */
     public function index()
     {
+
         $products = Product::paginate(10);
         return view('admin.products.index', compact('products'));
         // if (Auth::user()->is_admin) {
