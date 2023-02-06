@@ -29,9 +29,9 @@ class ProductController extends Controller
         if (Auth::user()->isAdmin()) {
             $products = Product::paginate(10);
         }else{
-            $userId = Auth::id();
             $shopkeeper = Shopkeeper::find(Auth::user()->id);
-            $products = $shopkeeper->products;
+            $userId = $shopkeeper->id;
+            $products = Product::where('shopkeeper_id', $userId)->paginate(10);
         }
         return view('admin.products.index', compact('products'));
     }
