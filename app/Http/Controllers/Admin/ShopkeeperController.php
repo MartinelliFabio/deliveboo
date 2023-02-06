@@ -15,7 +15,7 @@ class ShopkeeperController extends Controller
      */
     public function index()
     {
-        return view('admin.shopkeeper.index');
+        return view('admin.shopkeepers.index');
     }
 
     /**

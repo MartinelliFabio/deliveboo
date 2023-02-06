@@ -20,7 +20,7 @@ return new class extends Migration
             $table->float('price_tot', 6, 2)->unsigned();
             $table->string('email', 100)->unique()->required();
             $table->string('address', 255)->required();
-            $table->tinyInteger('phone');
+            $table->string('phone',50);
             $table->string('name', 100);
             $table->string('surname', 100);
             $table->string('status', 50);

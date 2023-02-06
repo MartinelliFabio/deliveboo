@@ -1,12 +1,15 @@
 <?php
 
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ShopkeeperController;
-use App\Http\Controllers\TypeController;
-use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\Admin\DashboardController;
+use Illuminate\Support\Facades\Route; 
+
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ShopkeeperController;
+use App\Http\Controllers\Admin\TypeController;
+
 
 /*
 |--------------------------------------------------------------------------
