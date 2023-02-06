@@ -14,18 +14,11 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     *
      */
     public function index()
     {
-        if (Auth::user()->is_admin) {
-            $products = Product::all();
-            return view('admin.products.index', compact('products'));
-        }else{
-            $shopkeeper = Shopkeeper::find(Auth::user()->id);
-            $products = $shopkeeper->products;
-            return view('admin.products.index', compact('products'));
-        }
+        //
     }
 
     /**

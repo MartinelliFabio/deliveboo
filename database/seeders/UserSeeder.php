@@ -18,18 +18,18 @@ class UserSeeder extends Seeder
     {
         $user = new User();
         $user->name = 'team6';
-        $user->email = 'team6@delivebool.it';
+        $user->email = 'team6@deliveboo.it';
         $user->password = bcrypt('team6');
-        $user->is_admin = false;
+        $user->is_admin = true;
         $user->save();
         //utenti creati con faker.
-        for ($i = 0; $i < 10; $i++) {
-            $user = new User;
-            $user->name = $faker->name();
-            $user->email = $faker->email();
-            $user->password = bcrypt('team6');
-            $user->is_admin = false;
-            $user->save();
-        }
+        // for ($i = 0; $i < 10; $i++) {
+        //     $user = new User;
+        //     $user->name = $faker->name();
+        //     $user->email = $faker->email();
+        //     $user->password = bcrypt('team6');
+        //     $user->is_admin = false;
+        //     $user->save();
+        // }
     }
 }
