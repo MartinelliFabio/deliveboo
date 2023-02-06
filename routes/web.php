@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ShopkeeperController;
+use App\Http\Controllers\TypeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,17 +20,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('guest.welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function() {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::resource('products', ProductController::class)->parameters(['products' => 'product:slug'])->except('show','create','edit');
+    Route::resource('types', TypeController::class)->parameters(['types' => 'type:slug'])->except('show','create','edit');
+    Route::resource('shopkeepers', ShopkeeperController::class)->parameters(['shopkeepers' => 'shopkeeper:slug'])->except('show','create','edit');
+    // Route::resource('orders', OrderController::class)->parameters(['orders' => 'order:slug'])->except('show','create','edit');
 });
 
 require __DIR__.'/auth.php';

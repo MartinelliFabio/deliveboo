@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Shopkeeper;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -15,7 +17,14 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        if (Auth::user()->is_admin) {
+            $products = Product::all();
+            return view('admin.products.index', compact('products'));
+        }else{
+            $shopkeeper = Shopkeeper::find(Auth::user()->id);
+            $products = $shopkeeper->products;
+            return view('admin.products.index', compact('products'));
+        }
     }
 
     /**
