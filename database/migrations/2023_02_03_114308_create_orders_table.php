@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('surname', 100);
             $table->string('status', 50);
-            $table->date('datetime');
+            $table->string('datetime');
             $table->timestamps();
         });
     }

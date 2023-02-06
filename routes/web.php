@@ -32,7 +32,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::resource('products', ProductController::class)->parameters(['products' => 'product:slug'])->except('show','create','edit');
     Route::resource('types', TypeController::class)->parameters(['types' => 'type:slug'])->except('show','create','edit');
     Route::resource('shopkeepers', ShopkeeperController::class)->parameters(['shopkeepers' => 'shopkeeper:slug'])->except('show','create','edit');
-    // Route::resource('orders', OrderController::class)->parameters(['orders' => 'order:slug'])->except('show','create','edit');
+    Route::resource('orders', OrderController::class)->parameters(['orders' => 'order:slug'])->except('show','create','edit');
 });
 
 require __DIR__.'/auth.php';

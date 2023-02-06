@@ -30,7 +30,7 @@ class OrderSeeder extends Seeder
             $new_order->name = $faker->firstName($gender = null);
             $new_order->surname = $faker->lastName();
             $new_order->status = $order['status'];
-            $new_order->datetime = $order['datetime'];
+            $new_order->datetime = $faker->time();
             $new_order->save();
         }
     }
