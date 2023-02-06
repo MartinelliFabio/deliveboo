@@ -6,8 +6,12 @@ use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Order;
 use App\Models\Shopkeeper;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProductController extends Controller
 {
@@ -18,14 +22,16 @@ class ProductController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->is_admin) {
-            $products = Product::all();
-            return view('admin.products.index', compact('products'));
-        }else{
-            $shopkeeper = Shopkeeper::find(Auth::user()->id);
-            $products = $shopkeeper->products;
-            return view('admin.products.index', compact('products'));
-        }
+        $products = Product::paginate(10);
+        return view('admin.products.index', compact('products'));
+        // if (Auth::user()->is_admin) {
+        //     $products = Product::paginate(10);
+        //     return view('admin.products.index', compact('products'));
+        // }else{
+        //     $shopkeeper = Shopkeeper::find(Auth::user()->id);
+        //     $products = $shopkeeper->products;
+        //     return view('admin.products.index', compact('products'));
+        // }
     }
 
     /**
@@ -33,9 +39,9 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Product $product)
     {
-        //
+        return view('admin.products.create', compact('product'));
     }
 
     /**
@@ -46,7 +52,16 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $data = $request->validated();
+        $slug = Str::slug($request->name);
+        $data['slug'] = $slug;
+        if($request->hasFile('image')) {
+            $path = Storage::put('images', $request->image);
+            $data['image'] = $path;
+        }
+        $new_product = Product::create($data);
+
+        return redirect()->route('admin.products.show', $new_product->slug);
     }
 
     /**
@@ -57,7 +72,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('admin.products.show', compact('product'));
+        
     }
 
     /**
@@ -68,7 +84,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('admin.products.edit', compact('product'));
     }
 
     /**
@@ -80,7 +96,21 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        $data = $request->validated();
+        $slug = Str::slug($request->name);
+        $data['slug'] = $slug;
+        if($request->hasFile('image')){
+            if ($product->image) {
+                Storage::delete($product->image);
+            }
+
+            $path = Storage::put('images', $request->image);
+            $data['image'] = $path;
+        }
+        $updated = $product->name;
+        $product->update($data);
+        
+        return redirect()->route('admin.products.index')->with('message', "$updated updated successfully");
     }
 
     /**
@@ -91,6 +121,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('admin.products.index')->with('message', "$product->name deleted successfully");
     }
 }
