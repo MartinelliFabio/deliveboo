@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+
 
 class UpdateProductRequest extends FormRequest
 {
@@ -24,7 +26,24 @@ class UpdateProductRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|max:100|min:3',
+            'price' => 'required|integer|max:100|min:3',
+            'image' => 'nullable|image|max:255',
+            'available' => 'required',
+            'ingredient' => 'nullable',
+        ];
+        
+    }
+    public function messages()
+    {
+        return [
+            'name.required' => 'Il nome è obbligatorio.',
+            'name.min' => 'Il nome deve essere lungo almeno :min caratteri.',
+            'name.max' => 'Il nome non può superare i :max caratteri.',
+            'name.unique:products' => 'Il nome esiste già',
+            'price.required' => 'Il prezzo è obbligatorio.',
+            'price.max' => 'Il prezzo non deve superare :max',
+            'price.min' => 'Il prezzo non deve essere minore di :min',
         ];
     }
 }
