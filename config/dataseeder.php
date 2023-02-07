@@ -10,7 +10,8 @@ return [
             'user_id' => 2,
             'name_user' => 'utente2',
             'email' => 'utente2@deliveboo.com',
-            'password' => 'password'
+            'password' => 'password',
+            'type' => 'americano'
         ],
         [
             "name" => "Pizzeria Reginella",
@@ -21,7 +22,8 @@ return [
             'user_id' => 3,
             'name_user' => 'utente3',
             'email' => 'utente3@deliveboo.com',
-            'password' => 'password'
+            'password' => 'password',
+            'type' => 'italiano'
         ],
         [
             "name" => "Starbucks",
@@ -32,7 +34,8 @@ return [
             'user_id' => 4,
             'name_user' => 'utente4',
             'email' => 'utente4@deliveboo.com',
-            'password' => 'password'
+            'password' => 'password',
+            'type' => 'americano'
         ],
         [
             "name" => "Sushi Club",
@@ -43,7 +46,8 @@ return [
             'user_id' => 5,
             'name_user' => 'utente5',
             'email' => 'utente5@deliveboo.com',
-            'password' => 'password'
+            'password' => 'password',
+            'type' => 'gaipponese'
         ],
         [
             "name" => "Principe di Kebab Ali baba",
@@ -54,7 +58,8 @@ return [
             'user_id' => 6,
             'name_user' => 'utente6',
             'email' => 'utente6@deliveboo.com',
-            'password' => 'password'
+            'password' => 'password',
+            'type' => 'turco'
         ],
         [
             "name" => "Burger King",
@@ -65,7 +70,8 @@ return [
             'user_id' => 7,
             'name_user' => 'utente7',
             'email' => 'utente7@deliveboo.com',
-            'password' => 'password'
+            'password' => 'password',
+            'type' => 'americano'
         ],
         [
             "name" => "Burrito's Way",
@@ -76,7 +82,8 @@ return [
             'user_id' => 8,
             'name_user' => 'utente8',
             'email' => 'utente8@deliveboo.com',
-            'password' => 'password'
+            'password' => 'password',
+            'type' => 'messicano'
         ],
         [
             "name" => "La Sangria",
@@ -87,7 +94,8 @@ return [
             'user_id' => 9,
             'name_user' => 'utente9',
             'email' => 'utente9@deliveboo.com',
-            'password' => 'password'
+            'password' => 'password',
+            'type' => 'spagnolo'
         ],
         [
             "name" => "Chuan Xiang Ju Gastronomia Cinese",
@@ -98,7 +106,8 @@ return [
             'user_id' => 10,
             'name_user' => 'utente10',
             'email' => 'utente10@deliveboo.com',
-            'password' => 'password'
+            'password' => 'password',
+            'type' => 'cinese'
         ],
         [
             "name" => "Mi prendi in Gyros",
@@ -109,7 +118,8 @@ return [
             'user_id' => 11,
             'name_user' => 'utente11',
             'email' => 'utente11@deliveboo.com',
-            'password' => 'password'
+            'password' => 'password',
+            'type' => 'greco'
         ],
     ],
     "types" => [
@@ -130,42 +140,42 @@ return [
             "price" => "2.90",
             "ingredient" => "patatine fritte",
             "image" => "https://rs-menus-api.roocdn.com/images/af746bd6-c814-4508-ae80-951ddecd4a8a/image.jpeg?width=543&height=305&auto=webp&format=jpg&fit=crop",
-            "shopkeeper_id" => [7],
+            "shopkeeper_id" => [2, 3, 5],
         ],
         [
             "name" => "grand crispy McBacon",
             "price" => "7.10",
             "ingredient" => "bacon, hamburger, cheddar, salsa crispy",
             "image" => "https://rs-menus-api.roocdn.com/images/a9618a3d-ea13-4f45-945c-936b67fd673d/image.jpeg?width=560&height=315&auto=webp&format=jpg&fit=crop",
-            "shopkeeper_id" => [8, 9, 3, 7],
+            "shopkeeper_id" => [2],
         ],
         [
             "name" => "coca-cola",
             "price" => "3.00",
             "ingredient" => "liquido gassoso zuccherato",
             "image" => "https://rs-menus-api.roocdn.com/images/660ad39f-d513-42fc-b27e-8f083d548fdf/image.jpeg?width=543&height=305&auto=webp&format=jpg&fit=crop",
-            "shopkeeper_id" => [8]
+            "shopkeeper_id" => [1, 2, 3, 4, 5, 6, 7, 8]
         ],
         [
             "name" => "pizza margherita",
             "price" => "5.00",
             "ingredient" => "salsa di pomodoro, fiordilatte di agerola, basilico",
             "image" => "https://italianspizza.it/wp-content/uploads/2022/06/FAMILY-PIZZA-MARGHERITA-online-pizza-sconti-eventi-feste-delivery-consegna-a-domicilio-san-colombano-al-lambro-lambrinia-monteleone-lodi-milano-italia.png",
-            "shopkeeper_id" => [7],
+            "shopkeeper_id" => [1],
         ],
         [
             "name" => "pizza patatine e wurstel",
             "price" => "7.50",
             "ingredient" => "salsa di pomodoro, patatine fritte, wurstel",
             "image" => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6EfKp4WEmv4ED2UzSFHg3Dq86reMHi97FBHMZG7cMJD0zArx7u_opsvoBkwkWo1w4UIs&usqp=CAU",
-            "shopkeeper_id" => [7, 8, 9],
+            "shopkeeper_id" => [2],
         ],
         [
             "name" => "pizza quattro stagioni",
             "price" => "8.00",
             "ingredient" => "salsa di pomodoro, funghi, carciofi, peperoni, prosciutto cotto",
             "image" => "https://upload.wikimedia.org/wikipedia/commons/4/42/Pizza_Quattro_Stagioni_transparent.png?width=858&height=542",
-            "shopkeeper_id" => [3],
+            "shopkeeper_id" => [1],
         ],
         [
             "name" => "sangria tradicional rossa",
@@ -179,7 +189,7 @@ return [
             "price" => "18.00",
             "ingredient" => "frutti di mare",
             "image" => "https://www.saporedimare.it/wp-content/uploads/elementor/thumbs/Paella-carne-pesce-plbjf523mkqld4kaarqymwykuj7dw7dh0e688bjrf2.png",
-            "shopkeeper_id" => [9, 7],
+            "shopkeeper_id" => [7, 8, 9],
         ],
         [
             "name" => "gazpacho andaluz",
@@ -193,112 +203,112 @@ return [
             "price" => "2.60",
             "ingredient" => "Latte caldo ed espresso con una soffice e golosa crema di latte",
             "image" => "https://f.roocdn.com/images/menu_items/98014100/item-image.jpg?width=543&height=305&auto=webp&format=jpg&v=1674467059&fit=crop",
-            "shopkeeper_id" => [7, 8],
+            "shopkeeper_id" => [1, 2, 7],
         ],
         [
             "name" => "Caffe Americano",
             "price" => "2.50",
             "ingredient" => "Caffe espresso e acqua calda come la classica ricetta americana",
             "image" => "https://f.roocdn.com/images/menu_items/98014104/item-image.jpg?width=543&height=305&auto=webp&format=jpg&v=1674467059&fit=crop",
-            "shopkeeper_id" => [9],
+            "shopkeeper_id" => [1, 2],
         ],
         [
             "name" => "Toast Classico",
             "price" => "6.90",
             "ingredient" => "Pane toast con farina integrale, prosciutto cotto alta qualita, edamer",
             "image" => "https://f.roocdn.com/images/menu_items/98014029/item-image.jpg?width=560&height=315&auto=webp&format=jpg&v=1674467059&fit=crop",
-            "shopkeeper_id" => [7, 8],
+            "shopkeeper_id" => [1, 2, 3, 4, 5, 6, 7, 8],
         ],
         [
             "name" => "Riso alla cantonese",
             "price" => "4.00",
             "ingredient" => "Riso saltato con prosciutto, piselli ed uovo",
             "image" => "https://images.fidhouse.com/fidelitynews/wp-content/uploads/sites/6/2016/03/1456829520_d14699eab543f3b24be96d83a9fa22b34846fce0-321023390.jpg",
-            "shopkeeper_id" => [8],
+            "shopkeeper_id" => [3],
         ],
         [
             "name" => "Onigiri spicy",
             "price" => "5.00",
             "ingredient" => "Salmone crudo e salsa maionese piccante",
             "image" => "https://rs-menus-api.roocdn.com/images/ab985cb8-fb29-4cad-870d-18883a4d23eb/image.jpeg?width=560&height=315&auto=webp&format=jpg&fit=crop",
-            "shopkeeper_id" => [7],
+            "shopkeeper_id" => [4],
         ],
         [
             "name" => "Sashimi sake",
             "price" => "5.00",
             "ingredient" => "Fettine di salmone crudo",
             "image" => "https://rs-menus-api.roocdn.com/images/7824972b-dbf0-4924-936e-2054078680c8/image.jpeg?width=560&height=315&auto=webp&format=jpg&fit=crop",
-            "shopkeeper_id" => [8],
+            "shopkeeper_id" => [4],
         ],
         [
             "name" => "Panino Kebab",
             "price" => "6.00",
             "ingredient" => "Kebab, insalata, pomodoro, salsa piccante, cipolla , salsa yogurt",
             "image" => "https://d2j6dbq0eux0bg.cloudfront.net/images/62400814/2367230254.jpg",
-            "shopkeeper_id" => [5],
+            "shopkeeper_id" => [7],
         ],
         [
             "name" => "Arrotolato Kebab",
             "price" => "6.00",
             "ingredient" => "Kebab, insalata, pomodoro, salsa piccante, cipolla , salsa yogurt",
             "image" => "https://qualitifood.com/wp-content/uploads/brizy/imgs/piada-kebab-tagliato-545x545x0x68x545x409x1562337866.png",
-            "shopkeeper_id" => [3],
+            "shopkeeper_id" => [7],
         ],
         [
             "name" => "Focaccia bianca",
             "price" => "4.00",
             "ingredient" => "Focaccia bianca",
             "image" => "https://content.dambros.it/uploads/2016/04/19103803/0000121304.jpg",
-            "shopkeeper_id" => [6],
+            "shopkeeper_id" => [1],
         ],
         [
             "name" => "Bacon King",
             "price" => "8.10",
             "ingredient" => "Due hamburger di manzo alla griglia con 8 fette di bacon, cheddar, ketchup e maionese",
             "image" => "https://f.roocdn.com/images/menu_items/19526413/item-image.jpg?width=543&height=305&auto=webp&format=jpg&v=1675186254&fit=crop",
-            "shopkeeper_id" => [1],
+            "shopkeeper_id" => [2],
         ],
         [
             "name" => "Sprite",
             "price" => "3.80",
             "ingredient" => "Bibita Sprite",
             "image" => "https://f.roocdn.com/images/menu_items/19526353/item-image.jpg?width=560&height=315&auto=webp&format=jpg&v=1675186254&fit=crop",
-            "shopkeeper_id" => [8, 9, 4],
+            "shopkeeper_id" => [1, 2, 3, 4, 5, 6, 7, 8, 9],
         ],
         [
             "name" => "Bacon king fries con cheddar sauce e bacon bits",
             "price" => "4.40",
             "ingredient" => "patatine fritte con coriandoli di bacon e salsa cheddar",
             "image" => "https://f.roocdn.com/images/menu_items/182573093/item-image.jpg?width=560&height=315&auto=webp&format=jpg&v=1675186254&fit=crop",
-            "shopkeeper_id" => [7, 8, 9, 5],
+            "shopkeeper_id" => [1, 2],
         ],
         [
             "name" => "El Pulled Burrito",
             "price" => "13.50",
             "ingredient" => "Riso basmati, pulled pork, fagioli rossi, pico de gallo, panna acida e guacamole",
             "image" => "https://rs-menus-api.roocdn.com/images/88b43cfe-184d-4316-a972-7c2353dddb20/image.jpeg?width=560&height=315&auto=webp&format=jpg&fit=crop",
-            "shopkeeper_id" => [3],
+            "shopkeeper_id" => [5],
         ],
         [
             "name" => "Taco de Chili",
             "price" => "12.00",
             "ingredient" => "Base di lattuga, chili con carne, pico de gallo e guacamole",
             "image" => "https://rs-menus-api.roocdn.com/images/b4b78fa1-8c5e-48b7-b277-13ff33082e52/image.jpeg?width=543&height=305&auto=webp&format=jpg&fit=crop",
-            "shopkeeper_id" => [9],
+            "shopkeeper_id" => [5, 9],
         ],
         [
             "name" => "Nachos",
             "price" => "7.00",
             "ingredient" => "Tortillas di mais",
             "image" => "https://rs-menus-api.roocdn.com/images/a68d3915-2e11-4e0a-bdd9-210ec9afd991/image.jpeg?width=560&height=315&auto=webp&format=jpg&fit=crop",
-            "shopkeeper_id" => [2],
+            "shopkeeper_id" => [8],
         ],
         [
             "name" => "Manzo con cinque aromi in salsa piccante",
             "price" => "11.00",
             "ingredient" => "Manzo",
             "image" => "https://rs-menus-api.roocdn.com/images/a68d3915-2e11-4e0a-bdd9-210ec9afd991/image.jpeg?width=560&height=315&auto=webp&format=jpg&fit=crop",
-            "shopkeeper_id" => [6],
+            "shopkeeper_id" => [4],
         ],
         [
             "name" => "Ravioli",
@@ -319,21 +329,21 @@ return [
             "price" => "8.50",
             "ingredient" => "Falafel tradizionali con salsa allo yogurt",
             "image" => "https://rs-menus-api.roocdn.com/images/4ec0a438-09c0-4b2d-aff6-7e55e0921f0b/image.jpeg?width=560&height=315&auto=webp&format=jpg&fit=crop",
-            "shopkeeper_id" => [3],
+            "shopkeeper_id" => [6, 7],
         ],
         [
             "name" => "Pita Gyros Falafel",
             "price" => "13.50",
             "ingredient" => "Pita con falafel, hummus, pico de gallo, lattuga e salsa",
             "image" => "https://rs-menus-api.roocdn.com/images/28401375-7661-4cdd-a7e5-dc3f2c3d586c/image.jpeg?width=560&height=315&auto=webp&format=jpg&fit=crop",
-            "shopkeeper_id" => [1],
+            "shopkeeper_id" => [6, 7],
         ],
         [
             "name" => "Sprite Vetro",
             "price" => "5.00",
             "ingredient" => "Bibita Sprite",
             "image" => "https://rs-menus-api.roocdn.com/images/eed0caee-9113-4b7c-82ca-dca20d4ceec6/image.jpeg?width=560&height=315&auto=webp&format=jpg&fit=crop",
-            "shopkeeper_id" => [8, 9, 1],
+            "shopkeeper_id" => [1, 2, 3, 4, 5, 6, 7, 8],
         ],
     ],
     "orders" => [
