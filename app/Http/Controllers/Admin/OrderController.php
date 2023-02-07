@@ -23,7 +23,7 @@ class OrderController extends Controller
             $orders = Order::paginate(10);
         }else{
             $products = Product::find(Auth::user()->id);
-            $orders = Order::where('product_id')->get();
+            $orders = Order::where('product_id')->paginate(5);
         }
         return view('admin.orders.index', compact('orders'));
     }
@@ -91,6 +91,10 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        if(!Auth::user()->isAdmin() && $order->user_id !== Auth::id()){
+            abort(403);
+        }
+        $order->delete();
+        return redirect()->route('admin.orders.index')->with('message', "$order->name deleted successfully");
     }
 }

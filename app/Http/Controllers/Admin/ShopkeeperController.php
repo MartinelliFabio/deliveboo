@@ -19,10 +19,11 @@ class ShopkeeperController extends Controller
     public function index()
     {
         if(Auth::user()->isAdmin()){
-            $shopkeepers= Shopkeeper::all();
+            $shopkeepers= Shopkeeper::paginate(5);
         } else {
             $userId = Auth::id();
-            $shopkeepers = Shopkeeper::where('user_id', $userId)->get();
+            // $shopkeepers = Shopkeeper::where('user_id', Auth::user()->id)->first();
+            $shopkeepers = Shopkeeper::where('user_id', $userId)->paginate(5);
         }
         return view('admin.shopkeepers.index', compact('shopkeepers'));
     }
@@ -32,9 +33,9 @@ class ShopkeeperController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Shopkeeper $shopkeeper)
     {
-        //
+        return view('admin.shopkeepers.create', compact('shopkeeper'));
     }
 
     /**
@@ -51,11 +52,11 @@ class ShopkeeperController extends Controller
     $data['slug'] = $slug;
     $data['user_id'] = $userId;
     if($request->hasFile('image')){
-        $path = Storage::disk('public')->put('shopkeeper_images', $request->image);
+        $path = Storage::put('images', $request->image);
         $data['image'] = $path;
     }
     $new_shopkeeper = Shopkeeper::create($data);
-    return redirect()->route('admin.posts.show', $new_shopkeeper->slug);
+    return redirect()->route('admin.shopkeepers.show', $new_shopkeeper->slug);
     }
 
     /**
@@ -120,7 +121,7 @@ class ShopkeeperController extends Controller
      */
     public function destroy(Shopkeeper $shopkeeper)
     {
-         if(!Auth::user()->isAdmin() && $shopkeeper->user_id !== Auth::id()){
+        if(!Auth::user()->isAdmin() && $shopkeeper->user_id !== Auth::id()){
             abort(403);
         }
         $shopkeeper->delete();

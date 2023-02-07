@@ -4,6 +4,7 @@
     
 <div id="table-list">
     <div class="table-container">
+        <h1 class="mb-5">Prodotti</h1>
         @if(session()->has('message'))
         <div class="alert alert-success mb-3 mt-3 w-75 m-auto text-capitalize">
             {{ session()->get('message') }}

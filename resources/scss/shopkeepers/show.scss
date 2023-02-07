@@ -1,0 +1,14 @@
+#a-shopkeepers {
+    .transition {
+        transition: all .88s;
+        transform-origin: 0;
+
+        &:hover {
+            i {
+                margin-right: 5px;
+                transform: scale(1.3);
+            }
+        }
+    }
+    
+}
