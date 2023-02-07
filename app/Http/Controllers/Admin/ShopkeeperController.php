@@ -21,9 +21,9 @@ class ShopkeeperController extends Controller
         if(Auth::user()->isAdmin()){
             $shopkeepers= Shopkeeper::paginate(5);
         } else {
-            $userId = Auth::id();
-            // $shopkeepers = Shopkeeper::where('user_id', Auth::user()->id)->first();
-            $shopkeepers = Shopkeeper::where('user_id', $userId)->paginate(5);
+            // $userId = Auth::id();
+            $shopkeepers = Shopkeeper::where('user_id', Auth::user()->id)->paginate(5);
+            // $shopkeepers = Shopkeeper::where('user_id', $userId)->paginate(5);
         }
         return view('admin.shopkeepers.index', compact('shopkeepers'));
     }
@@ -52,7 +52,7 @@ class ShopkeeperController extends Controller
     $data['slug'] = $slug;
     $data['user_id'] = $userId;
     if($request->hasFile('image')){
-        $path = Storage::put('images', $request->image);
+        $path = Storage::put('shopkeeper_images', $request->image);
         $data['image'] = $path;
     }
     $new_shopkeeper = Shopkeeper::create($data);
