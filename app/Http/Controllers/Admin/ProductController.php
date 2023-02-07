@@ -11,6 +11,8 @@ use App\Models\Shopkeeper;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Cviebrock\EloquentSluggable\Services\SlugService;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 
 class ProductController extends Controller
@@ -28,6 +30,9 @@ class ProductController extends Controller
             // $shopkeeper = Shopkeeper::find(Auth::user()->id);
             // $userId = $shopkeeper->id;
             // $products = Product::where('shopkeeper_id', $userId)->paginate(10);
+            // if(!Auth::user()->isAdmin() && $shopkeepers->user_id !== Auth::id()){
+            //     abort(403);
+            // }
             $shopkeeper = Shopkeeper::where('user_id', Auth::user()->id)->first();
             $products = Product::where('shopkeeper_id', $shopkeeper->id)->paginate(5);
             // dd($shopkeeper);
@@ -55,7 +60,7 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
         $data = $request->validated();
-        $slug = Str::slug($request->name);
+        $slug = SlugService::createSlug(Product::class, 'slug', $request->name);
         $data['slug'] = $slug;
         if($request->hasFile('image')) {
             $path = Storage::put('products_images', $request->image);
@@ -74,6 +79,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        // if(!Auth::user()->isAdmin() && $shopkeepers->user_id !== Auth::id()){
+        //     abort(403);
+        // }
         return view('admin.products.show', compact('product'));
 
     }

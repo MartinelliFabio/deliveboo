@@ -25,7 +25,7 @@ class ProductSeeder extends Seeder
             foreach ($product['shopkeeper_id'] as $shopkeeper) {
                 $new_product = new Product();
                 $new_product->name = $product['name'];
-                $new_product->slug = SlugService::createSlug(Product::class, 'slug', $new_product);
+                // $new_product->slug = Product::create(['name', $new_product->name]);
                 $new_product->available = $faker->boolean();
                 $new_product->image = $product['image'];
                 $new_product->ingredient = $product['ingredient'];
