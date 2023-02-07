@@ -37,10 +37,12 @@
                     {{-- Immagine Ristorante --}}
                     <div class="d-flex mb-5 align-items-center">
                         <div class="media me-4">
-                        @if($shopkeeper->image)
-                            <img class="shadow" width="150" src="{{asset('storage/' . $shopkeeper->image)}}" alt="{{$shopkeeper->image}}">
-                            @else
-                            <img class="shadow" width="150" src="https://dummyimage.com/200x200/000/fff" alt="C/O https://dummyimage.com/">
+                        @if(Str::contains($shopkeeper->image, 'shopkeeper_images/'))
+                            <img class="shadow" src="{{ asset('storage/' . $shopkeeper->image) }}" alt="{{ $shopkeeper->name }}">
+                        @elseif($shopkeeper->image)
+                            <img class="shadow" src="{{ $shopkeeper->image }}" alt="{{ $shopkeeper->name }}">
+                        @else
+                            <img class="shadow" src="https://dummyimage.com/1200x840/000/fff" alt="C/O https://dummyimage.com/">
                         @endif
                         </div>
                         <div class="mb-3">

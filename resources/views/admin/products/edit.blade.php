@@ -43,10 +43,12 @@
                     {{-- Immagine Prodotto --}}
                     <div class="d-flex mb-5 align-items-center">
                         <div class="media me-4">
-                        @if($product->image)
-                            <img class="shadow" width="150" src="{{asset('storage/' . $product->image)}}" alt="{{$product->image}}">
-                            @else
-                            <img class="shadow" width="150" src="https://dummyimage.com/200x200/000/fff" alt="C/O https://dummyimage.com/">
+                        @if(Str::contains($product->image, 'products_images/'))
+                            <img class="shadow" src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+                        @elseif($product->image)
+                            <img class="shadow" src="{{ $product->image }}" alt="{{ $product->name }}">
+                        @else
+                            <img class="shadow" src="https://dummyimage.com/1200x840/000/fff" alt="C/O https://dummyimage.com/">
                         @endif
                         </div>
                         <div class="mb-3">
