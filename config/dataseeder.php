@@ -11,7 +11,7 @@ return [
             'name_user' => 'utente2',
             'email' => 'utente2@deliveboo.com',
             'password' => 'password',
-            'type' => 'americano'
+            'type_id' => [1]
         ],
         [
             "name" => "Pizzeria Reginella",
@@ -23,7 +23,7 @@ return [
             'name_user' => 'utente3',
             'email' => 'utente3@deliveboo.com',
             'password' => 'password',
-            'type' => 'italiano'
+            'type_id' => [2]
         ],
         [
             "name" => "Starbucks",
@@ -35,7 +35,7 @@ return [
             'name_user' => 'utente4',
             'email' => 'utente4@deliveboo.com',
             'password' => 'password',
-            'type' => 'americano'
+            'type_id' => [3]
         ],
         [
             "name" => "Sushi Club",
@@ -47,7 +47,7 @@ return [
             'name_user' => 'utente5',
             'email' => 'utente5@deliveboo.com',
             'password' => 'password',
-            'type' => 'gaipponese'
+            'type_id' => [4]
         ],
         [
             "name" => "Principe di Kebab Ali baba",
@@ -59,7 +59,7 @@ return [
             'name_user' => 'utente6',
             'email' => 'utente6@deliveboo.com',
             'password' => 'password',
-            'type' => 'turco'
+            'type_id' => [5]
         ],
         [
             "name" => "Burger King",
@@ -71,7 +71,7 @@ return [
             'name_user' => 'utente7',
             'email' => 'utente7@deliveboo.com',
             'password' => 'password',
-            'type' => 'americano'
+            'type_id' => [6]
         ],
         [
             "name" => "Burrito's Way",
@@ -83,7 +83,7 @@ return [
             'name_user' => 'utente8',
             'email' => 'utente8@deliveboo.com',
             'password' => 'password',
-            'type' => 'messicano'
+            'type_id' => [7]
         ],
         [
             "name" => "La Sangria",
@@ -95,7 +95,7 @@ return [
             'name_user' => 'utente9',
             'email' => 'utente9@deliveboo.com',
             'password' => 'password',
-            'type' => 'spagnolo'
+            'type_id' => [8]
         ],
         [
             "name" => "Chuan Xiang Ju Gastronomia Cinese",
@@ -107,7 +107,7 @@ return [
             'name_user' => 'utente10',
             'email' => 'utente10@deliveboo.com',
             'password' => 'password',
-            'type' => 'cinese'
+            'type_id' => [9]
         ],
         [
             "name" => "Mi prendi in Gyros",
@@ -119,7 +119,7 @@ return [
             'name_user' => 'utente11',
             'email' => 'utente11@deliveboo.com',
             'password' => 'password',
-            'type' => 'greco'
+            'type_id' => [10]
         ],
     ],
     "types" => [
