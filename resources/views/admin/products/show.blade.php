@@ -6,8 +6,10 @@
         <h1 class="mb-5 text-capitalize">{{$product->name}}</h1>
         <div class="row">
             <div class="img-box col-12 col-lg-4 col-md-6 me-5">
-                @if($product->image)
+                @if(Str::contains($product->image, 'products_images/'))
                     <img class="shadow" src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+                @elseif($product->image)
+                    <img class="shadow" src="{{ $product->image }}" alt="{{ $product->name }}">
                 @else
                     <img class="shadow" src="https://dummyimage.com/1200x840/000/fff" alt="C/O https://dummyimage.com/">
                 @endif

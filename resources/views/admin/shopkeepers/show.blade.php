@@ -6,8 +6,10 @@
         <h1 class="mb-5 text-capitalize">{{$shopkeeper->name}}</h1>
         <div class="row">
             <div class="img-box col-12 col-lg-4 col-md-6 me-5">
-                @if($shopkeeper->image)
+                @if(Str::contains($shopkeeper->image, 'shopkeeper_images/'))
                     <img class="shadow" src="{{ asset('storage/' . $shopkeeper->image) }}" alt="{{ $shopkeeper->name }}">
+                @elseif($shopkeeper->image)
+                    <img class="shadow" src="{{ $shopkeeper->image }}" alt="{{ $shopkeeper->name }}">
                 @else
                     <img class="shadow" src="https://dummyimage.com/1200x840/000/fff" alt="C/O https://dummyimage.com/">
                 @endif
@@ -30,7 +32,7 @@
                                     <span class="fw-bold">Orario:</span> {{$shopkeeper->hour}}
                                 </div>
                                 <div class="mb-2 text-capitalize">
-                                    <span class="fw-bold">E-mail:</span> {{$shopkeeper->email}}
+                                    {{-- <span class="fw-bold">E-mail:</span> {{$shopkeeper->user->email}} --}}
                                 </div>
                             </div>
                         </div>

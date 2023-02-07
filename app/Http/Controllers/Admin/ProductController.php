@@ -58,7 +58,7 @@ class ProductController extends Controller
         $slug = Str::slug($request->name);
         $data['slug'] = $slug;
         if($request->hasFile('image')) {
-            $path = Storage::put('images', $request->image);
+            $path = Storage::put('products_images', $request->image);
             $data['image'] = $path;
         }
         $new_product = Product::create($data);
@@ -106,7 +106,7 @@ class ProductController extends Controller
                 Storage::delete($product->image);
             }
 
-            $path = Storage::put('images', $request->image);
+            $path = Storage::put('products_images', $request->image);
             $data['image'] = $path;
         }
         $updated = $product->name;
