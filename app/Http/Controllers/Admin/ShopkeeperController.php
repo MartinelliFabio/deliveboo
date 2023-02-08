@@ -21,9 +21,7 @@ class ShopkeeperController extends Controller
         if(Auth::user()->isAdmin()){
             $shopkeepers= Shopkeeper::paginate(5);
         } else {
-            // $userId = Auth::id();
             $shopkeepers = Shopkeeper::where('user_id', Auth::user()->id)->paginate(5);
-            // $shopkeepers = Shopkeeper::where('user_id', $userId)->paginate(5);
         }
         return view('admin.shopkeepers.index', compact('shopkeepers'));
     }
@@ -35,6 +33,9 @@ class ShopkeeperController extends Controller
      */
     public function create(Shopkeeper $shopkeeper)
     {
+        if(Shopkeeper::where('user_id', Auth::user()->id)->exists()) {
+            abort(403);
+        }
         return view('admin.shopkeepers.create', compact('shopkeeper'));
     }
 

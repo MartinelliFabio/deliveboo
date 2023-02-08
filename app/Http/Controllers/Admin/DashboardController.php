@@ -17,9 +17,13 @@ class DashboardController extends Controller
         if (Auth::user()->is_admin) {
             $products = Shopkeeper::all();
             return view('admin.dashboard', compact('products'));
-        }else{
-            $shopkeeper = Shopkeeper::find(Auth::user()->id);
-            return view('admin.dashboard', compact('shopkeeper'));
+        } else {
+            $shopkeeper = Shopkeeper::where('user_id', Auth::user()->id)->first(); 
+            if ($shopkeeper) {
+                return view('admin.dashboard', compact('shopkeeper'));
+            } else {
+                return redirect()->route('admin.shopkeepers.create');
+            }
         }
     }
 }
