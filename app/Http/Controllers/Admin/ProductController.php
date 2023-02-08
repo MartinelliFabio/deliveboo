@@ -79,6 +79,14 @@ class ProductController extends Controller
         return redirect()->route('admin.products.show', $new_product->slug);
     }
 
+    public function archive() 
+    {
+        $products = Product::onlyTrashed()->get();
+
+        return view('admin.products.archive', compact('products'));
+
+    }
+
     /**
      * Display the specified resource.
      *
@@ -109,6 +117,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        if(!Auth::user()->isAdmin() && $shopkeeper->user_id !== Auth::id()){
+            abort(403);
+        }
         return view('admin.products.edit', compact('product'));
     }
 
@@ -148,5 +159,21 @@ class ProductController extends Controller
     {
         $product->delete();
         return redirect()->route('admin.products.index')->with('message', "$product->name deleted successfully");
+    }
+
+    public function trashedDelete($id)
+    {
+        $product = Product::onlyTrashed()->findOrFail($id);
+        $product->forceDelete();
+
+        return redirect()->route('admin.products.index')->with('message', "$product->name deleted successfully");
+    }
+
+    public function trashedRestored($id)
+    {
+        $product = Product::onlyTrashed()->findOrFail($id);
+        $product->restore();
+
+        return redirect()->route('admin.products.index')->with('message', "$product->name restore successfully");
     }
 }
