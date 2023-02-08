@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+
 
 class User extends Authenticatable
 {
@@ -48,7 +49,7 @@ class User extends Authenticatable
         return $this->is_admin == true;
     }
 
-    public function shopkeeper(): BelongsTo{
-        return $this->belongsTo(Shopkeeper::class);
+    public function shopkeeper(): HasOne{
+        return $this->HasOne(Shopkeeper::class);
     }
 }

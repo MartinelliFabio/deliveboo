@@ -26,12 +26,12 @@
                     {{-- Indirizzo Ristorante --}}
                     <div class="mb-3">
                         <label for="address" class="form-label">Indirizzo</label>
-                        <input type="text" class="form-control" id="address" name="address">
+                        <input type="text" class="form-control" id="address" name="address" required>
                     </div>
                     {{-- Orario Ristorante --}}
                     <div class="mb-3">
                         <label for="hour" class="form-label">Orario</label>
-                        <input type="text" class="form-control" id="hour" name="hour">
+                        <input type="text" class="form-control" id="hour" name="hour" required>
                     </div>
                     {{-- Immagine Ristorante --}}
                     <div class="mb-4">

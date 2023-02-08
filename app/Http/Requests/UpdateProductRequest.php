@@ -27,7 +27,7 @@ class UpdateProductRequest extends FormRequest
     {
         return [
             'name' => 'required|max:100|min:3',
-            'price' => 'required|integer|max:100|min:3',
+            'price' => 'required|numeric|between:3,100',
             'image' => 'nullable|image|max:255',
             'available' => 'required',
             'ingredient' => 'nullable',
@@ -40,10 +40,8 @@ class UpdateProductRequest extends FormRequest
             'name.required' => 'Il nome è obbligatorio.',
             'name.min' => 'Il nome deve essere lungo almeno :min caratteri.',
             'name.max' => 'Il nome non può superare i :max caratteri.',
-            'name.unique:products' => 'Il nome esiste già',
             'price.required' => 'Il prezzo è obbligatorio.',
-            'price.max' => 'Il prezzo non deve superare :max',
-            'price.min' => 'Il prezzo non deve essere minore di :min',
+            'price.between' => 'Il prezzo deve essere compreso tra :min e :max.',
         ];
     }
 }
