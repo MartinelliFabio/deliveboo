@@ -29,6 +29,12 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function() {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
+    Route::get('products/archive', [ProductController::class, 'archive'])->name('products.archive');
+    Route::delete('products/archive/{id}/restore', [ProductController::class, 'trashedRestored'])->name('products.archive.restore');
+    Route::delete('products/archive/{id}/force_delete', [ProductController::class, 'trashedDelete'])->name('products.archive.destroy');
+
+
+
     Route::resource('products', ProductController::class)->parameters(['products' => 'product:slug']);
     Route::resource('types', TypeController::class)->parameters(['types' => 'type:slug'])->except('show','create','edit');
     Route::resource('shopkeepers', ShopkeeperController::class)->parameters(['shopkeepers' => 'shopkeeper:slug']);
