@@ -109,6 +109,13 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        if (Auth::user()->isAdmin()){
+            abort(403);
+        }
+        $shopkeeper_id = Shopkeeper::where('user_id', Auth::user()->id)->first()->id;
+        if($product->shopkeeper_id !== $shopkeeper_id){
+            abort(403);
+        }
         return view('admin.products.edit', compact('product'));
     }
 

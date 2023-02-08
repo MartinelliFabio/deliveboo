@@ -19,12 +19,15 @@ class ShopkeeperTypeSeeder extends Seeder
     {
         $shopkeepers = config('dataseeder.shopkeepers');
         // dd($shopkeepers);
+
         foreach($shopkeepers as $shopkeeper) {
-            foreach ($shopkeeper['type_id'] as $type)
+            foreach ($shopkeeper['type_id'] as $type) {
+
                 DB::table('shopkeeper_type')->insert([
                     'shopkeeper_id' => Shopkeeper::where('name', $shopkeeper['name'])->first()->id,
                     'type_id' => $type,
                 ]);
+            }
         }
     }
 }
