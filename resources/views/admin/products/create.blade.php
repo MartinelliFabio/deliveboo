@@ -18,7 +18,7 @@
                     {{-- Prezzo Prodotto --}}
                     <div class="mb-3">
                         <label for="price" class="form-label">Prezzo <span>*</span></label>
-                        <input type="number" step="0.01" name="price" id="price" class="form-control  @error('price') is-invalid @enderror" required max="100" min="0">
+                        <input type="number" step="0.01" name="price" id="price" class="form-control  @error('price') is-invalid @enderror" required max="100" min="3">
                         @error('price')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
