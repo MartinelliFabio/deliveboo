@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use App\Models\Shopkeeper;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -21,10 +22,13 @@ class OrderController extends Controller
     {
         if (Auth::user()->isAdmin()) {
             $orders = Order::paginate(10);
-        }else{
-            $products = Product::find(Auth::user()->id);
-            $orders = Order::where('product_id')->paginate(5);
         }
+        $shopkeeper = Shopkeeper::where('user_id', Auth::user()->id)->first();
+        $shopkeeper_id = $shopkeeper->id;
+        $orders = Order::whereHas('products', function ($query) use ($shopkeeper_id) {
+            $query->where('shopkeeper_id', $shopkeeper_id);
+        })->orderBy('datetime')->paginate(10);
+
         return view('admin.orders.index', compact('orders'));
     }
 
@@ -91,10 +95,30 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        if(!Auth::user()->isAdmin() && $order->user_id !== Auth::id()){
-            abort(403);
-        }
         $order->delete();
-        return redirect()->route('admin.orders.index')->with('message', "$order->name deleted successfully");
+        return redirect()->route('admin.orders.index')->with('message', "Numero ordine $order->nr_ord cancellato con successo!");
+    }
+
+    public function archive() 
+    {
+        $orders = Order::onlyTrashed()->get();
+        return view('admin.orders.archive', compact('orders'));
+    }
+
+
+    // public function trashedDelete($id)
+    // {
+    //     $order = Order::onlyTrashed()->findOrFail($id);
+    //     $order->forceDelete();
+
+    //     return redirect()->route('admin.orders.index')->with('message', "$order->nr_ord eliminato con successo!");
+    // }
+
+    public function trashedRestored($id)
+    {
+        $order = Order::onlyTrashed()->findOrFail($id);
+        $order->restore();
+
+        return redirect()->route('admin.orders.index')->with('message', "$order->nr_ord ripristinato con successo!");
     }
 }

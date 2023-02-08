@@ -5,6 +5,8 @@
             <li><a href="{{route('admin.shopkeepers.index')}}"><i class="fa-solid fa-store"></i><div>Ristorante</div></a></li>
             <li><a href="{{route('admin.products.index')}}"><i class="fa-solid fa-utensils"></i><div>Prodotti</div></a></li>
             <li><a href="{{route('admin.orders.index')}}"><i class="fa-solid fa-folder-open"></i><div>Ordini</div></a></li>
+            <li><a href="{{route('admin.products.archive')}}"><i class="fa-solid fa-folder-open"></i><div>Archivio Prodotti</div></a></li>
+            <li><a href="{{route('admin.orders.archive')}}"><i class="fa-solid fa-folder-open"></i><div>Archivio Ordini</div></a></li>
         @endif
         @if(Auth::check() && Auth::user()->isAdmin())
             <li><a href="{{route('admin.types.index')}}"><i class="fa-solid fa-store"></i><div>Tipi di ristorante</div></a></li>

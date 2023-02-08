@@ -79,14 +79,6 @@ class ProductController extends Controller
         return redirect()->route('admin.products.show', $new_product->slug);
     }
 
-    public function archive() 
-    {
-        $products = Product::onlyTrashed()->get();
-
-        return view('admin.products.archive', compact('products'));
-
-    }
-
     /**
      * Display the specified resource.
      *
@@ -118,17 +110,18 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
 
-        if(!Auth::user()->isAdmin() && $shopkeeper->user_id !== Auth::id()){
+        if (!Auth::user()->isAdmin() && $shopkeeper->user_id !== Auth::id()) {
 
-        if (Auth::user()->isAdmin()){
-            abort(403);
-        }
-        $shopkeeper_id = Shopkeeper::where('user_id', Auth::user()->id)->first()->id;
-        if($product->shopkeeper_id !== $shopkeeper_id){
+            if (Auth::user()->isAdmin()) {
+                abort(403);
+            }
+            $shopkeeper_id = Shopkeeper::where('user_id', Auth::user()->id)->first()->id;
+            if ($product->shopkeeper_id !== $shopkeeper_id) {
 
-            abort(403);
+                abort(403);
+            }
+            return view('admin.products.edit', compact('product'));
         }
-        return view('admin.products.edit', compact('product'));
     }
 
     /**
@@ -166,22 +159,30 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('admin.products.index')->with('message', "$product->name deleted successfully");
+        return redirect()->route('admin.products.index')->with('message', "$product->name cancellato con successo!");
     }
 
-    public function trashedDelete($id)
+    public function archive() 
     {
-        $product = Product::onlyTrashed()->findOrFail($id);
-        $product->forceDelete();
+        $products = Product::onlyTrashed()->get();
 
-        return redirect()->route('admin.products.index')->with('message', "$product->name deleted successfully");
+        return view('admin.products.archive', compact('products'));
+
     }
+
+    // public function trashedDelete($id)
+    // {
+    //     $product = Product::onlyTrashed()->findOrFail($id);
+    //     $product->forceDelete();
+
+    //     return redirect()->route('admin.products.index')->with('message', "$product->name eliminato con successo!");
+    // }
 
     public function trashedRestored($id)
     {
         $product = Product::onlyTrashed()->findOrFail($id);
         $product->restore();
 
-        return redirect()->route('admin.products.index')->with('message', "$product->name restore successfully");
+        return redirect()->route('admin.products.index')->with('message', "$product->name ripristinato con successo!");
     }
 }
