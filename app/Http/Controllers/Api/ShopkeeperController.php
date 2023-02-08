@@ -19,17 +19,17 @@ class ShopkeeperController extends Controller
 
     public function show($slug)
     {
-        $shopkeepers = Shopkeeper::all();
-
-        if ($shopkeepers) {
+        $shopkeeper = Shopkeeper::with('products')->where('slug', $slug)->first();
+        
+        if ($shopkeeper) {
             return response()->json([
                 'success' => true,
-                'results' => $shopkeepers
+                'results' => $shopkeeper
             ]);
         } else
             return response()->json([
-                'success' => true,
-                'results' => 'no project'
+                'success' => false,
+                'results' => 'no shopkeeper'
             ]);
     }
 }
