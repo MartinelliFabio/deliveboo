@@ -36,7 +36,7 @@
                             <form action="{{route('admin.orders.destroy', $order->slug)}}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="delete-button btn btn-danger" data-item-title="{{$order->name}}"><i class="fa-solid fa-trash-can"></i></button>
+                            <button type="submit" class="delete-button btn btn-danger" data-item-title="{{$order->nr_ord}}"><i class="fa-solid fa-trash-can"></i></button>
                             </form>
                         </td>
                     </tr>

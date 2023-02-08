@@ -4,7 +4,7 @@
     
 <div id="table-list">
     <div class="table-container">
-        <h1 class="mb-5">Soft Delete Products</h1>
+        <h1 class="mb-5">Archivio Prodotti</h1>
         @if(session()->has('message'))
         <div class="alert alert-success mb-3 mt-3 w-75 m-auto text-capitalize">
             {{ session()->get('message') }}
@@ -19,11 +19,11 @@
                     <th class="bl-hidden" scope="col">Disponibilità</th>
                     <th class="bl-hidden" scope="col">Ingredienti</th>
                     @if(!Auth::user()->isAdmin())
-                        <th scope="col">Edit</th>
+                        <th scope="col">Restore</th>
                     @endif
-                    @if(!Auth::user()->isAdmin())
+                    {{-- @if(!Auth::user()->isAdmin())
                         <th scope="col">Delete</th>
-                    @endif
+                    @endif --}}
                 </tr>
             </thead>
             <tbody>
@@ -43,7 +43,7 @@
                                 </form>
                             </td>
                         @endif
-                        @if(!Auth::user()->isAdmin())
+                        {{-- @if(!Auth::user()->isAdmin())
                             <td>
                                 <form action="{{route('admin.products.archive.destroy', $product->id)}}" method="POST">
                                 @csrf
@@ -51,7 +51,7 @@
                                 <button type="submit" class="delete-button btn btn-danger" data-item-title="{{$product->name}}"><i class="fa-solid fa-trash-can"></i></button>
                                 </form>
                             </td>
-                        @endif
+                        @endif --}}
                     </tr>
                 @endforeach
             </tbody>

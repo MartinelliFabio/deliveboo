@@ -29,9 +29,15 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function() {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
+    // Rotta per il soft-delete di Products 
     Route::get('products/archive', [ProductController::class, 'archive'])->name('products.archive');
     Route::delete('products/archive/{id}/restore', [ProductController::class, 'trashedRestored'])->name('products.archive.restore');
-    Route::delete('products/archive/{id}/force_delete', [ProductController::class, 'trashedDelete'])->name('products.archive.destroy');
+    // Route::delete('products/archive/{id}/force_delete', [ProductController::class, 'trashedDelete'])->name('products.archive.destroy');
+
+    // Rotta per il soft-delete di Orders 
+    Route::get('orders/archive', [OrderController::class, 'archive'])->name('orders.archive');
+    Route::delete('orders/archive/{id}/restore', [OrderController::class, 'trashedRestored'])->name('orders.archive.restore');
+    // Route::delete('orders/archive/{id}/force_delete', [OrderController::class, 'trashedDelete'])->name('orders.archive.destroy');
 
 
 
