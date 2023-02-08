@@ -10,7 +10,9 @@
             {{ session()->get('message') }}
         </div>
         @endif
-        <a href="{{route('admin.products.create')}}" class="text-white"><button class="btn btn-primary mb-2"><i class="fa-solid fa-plus"></i></button></a>
+        @if(!Auth::user()->isAdmin())
+            <a href="{{route('admin.products.create')}}" class="text-white"><button class="btn btn-primary mb-2"><i class="fa-solid fa-plus"></i></button></a>
+        @endif
         <table class="mb-2">
             <thead>
                 <tr>
@@ -19,8 +21,12 @@
                     <th class="" scope="col">Price</th>
                     <th class="bl-hidden" scope="col">Disponibilità</th>
                     <th class="bl-hidden" scope="col">Ingredienti</th>
-                    <th scope="col">Edit</th>
-                    <th scope="col">Delete</th>
+                    @if(!Auth::user()->isAdmin())
+                        <th scope="col">Edit</th>
+                    @endif
+                    @if(!Auth::user()->isAdmin())
+                        <th scope="col">Delete</th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
@@ -31,14 +37,18 @@
                         <td class="">{{$product->price}}&nbsp;&euro;</td>
                         <td class="bl-hidden">{{$product->available == 1 ? 'Si' : 'No'}}</td>
                         <td class="bl-hidden">{{$product->ingredient}}</td>
-                        <td><a class="link-secondary" href="{{route('admin.products.edit', $product->slug)}}" title="Edit product"><i class="fa-solid fa-pen"></i></a></td>
-                        <td>
-                            <form action="{{route('admin.products.destroy', $product->slug)}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="delete-button btn btn-danger" data-item-title="{{$product->name}}"><i class="fa-solid fa-trash-can"></i></button>
-                            </form>
-                        </td>
+                        @if(!Auth::user()->isAdmin())
+                            <td><a class="link-secondary" href="{{route('admin.products.edit', $product->slug)}}" title="Edit product"><i class="fa-solid fa-pen"></i></a></td>
+                        @endif
+                        @if(!Auth::user()->isAdmin())
+                            <td>
+                                <form action="{{route('admin.products.destroy', $product->slug)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="delete-button btn btn-danger" data-item-title="{{$product->name}}"><i class="fa-solid fa-trash-can"></i></button>
+                                </form>
+                            </td>
+                        @endif
                     </tr>
                 @endforeach
             </tbody>

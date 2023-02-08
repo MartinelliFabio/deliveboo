@@ -27,16 +27,12 @@ class ProductController extends Controller
         if (Auth::user()->isAdmin()) {
             $products = Product::paginate(10);
         }else{
-            // $shopkeeper = Shopkeeper::find(Auth::user()->id);
-            // $userId = $shopkeeper->id;
-            // $products = Product::where('shopkeeper_id', $userId)->paginate(10);
-            // if(!Auth::user()->isAdmin() && $shopkeepers->user_id !== Auth::id()){
-            //     abort(403);
-            // }
-            $shopkeeper = Shopkeeper::where('user_id', Auth::user()->id)->first();
-            $products = Product::where('shopkeeper_id', $shopkeeper->id)->paginate(5);
-            // dd($shopkeeper);
-            // return view('admin.products.index', compact('products'));
+            if(!Shopkeeper::where('user_id', Auth::user()->id)->exists()) {
+                abort(403);
+            } else {
+                $shopkeeper = Shopkeeper::where('user_id', Auth::user()->id)->first();
+                $products = Product::where('shopkeeper_id', $shopkeeper->id)->paginate(5);
+            }
         }
         return view('admin.products.index', compact('products'));
     }
@@ -46,8 +42,15 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Product $product)
+    public function create()
     {
+        if(Auth::user()->isAdmin()){
+            abort(403);
+        }
+        if(!Shopkeeper::where('user_id', Auth::user()->id)->exists()) {
+            abort(403);
+        }
+        $product = Product::all();
         return view('admin.products.create', compact('product'));
     }
 
@@ -60,6 +63,11 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
         $data = $request->validated();
+
+        $shopkeeper = Shopkeeper::where('user_id', Auth::user()->id)->first();
+        $shopkeeper_id = $shopkeeper->id;
+        $data['shopkeeper_id'] = $shopkeeper_id;
+
         $slug = SlugService::createSlug(Product::class, 'slug', $request->name);
         $data['slug'] = $slug;
         if($request->hasFile('image')) {
@@ -79,9 +87,16 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        // if(!Auth::user()->isAdmin() && $shopkeepers->user_id !== Auth::id()){
-        //     abort(403);
-        // }
+        if (Auth::user()->isAdmin()){
+            return view('admin.products.show', compact('product'));
+        }
+        if(!Shopkeeper::where('user_id', Auth::user()->id)->exists()) {
+            abort(403);
+        }
+        $shopkeeper_id = Shopkeeper::where('user_id', Auth::user()->id)->first()->id;
+        if($product->shopkeeper_id !== $shopkeeper_id){
+            abort(403);
+        }
         return view('admin.products.show', compact('product'));
 
     }
