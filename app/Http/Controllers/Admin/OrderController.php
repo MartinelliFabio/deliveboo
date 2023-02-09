@@ -9,6 +9,8 @@ use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Shopkeeper;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 
 class OrderController extends Controller
@@ -50,7 +52,17 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $shopkeeper = Shopkeeper::where('user_id', Auth::user()->id)->first();
+        $shopkeeper_id = $shopkeeper->id;
+        $data['shopkeeper_id'] = $shopkeeper_id;
+
+        $slug = Str::slug(Order::class, 'slug', $request->name);
+        $data['slug'] = $slug;
+        $new_order = Order::create($data);
+
+        return redirect()->route('admin.products.show', $new_order->slug);
     }
 
     /**
@@ -101,7 +113,19 @@ class OrderController extends Controller
 
     public function archive() 
     {
-        $orders = Order::onlyTrashed()->get();
+        if (Auth::user()->isAdmin()) {
+            $orders = Order::paginate(10);
+        }else{
+            if(!Shopkeeper::where('user_id', Auth::user()->id)->exists()) {
+                abort(403);
+            } else {
+                $shopkeeper = Shopkeeper::where('user_id', Auth::user()->id)->first();
+                $shopkeeper_id = $shopkeeper->id;
+                $orders = Order::whereHas('products', function ($query) use ($shopkeeper_id) {
+                    $query->where('shopkeeper_id', $shopkeeper_id);
+                })->onlyTrashed()->get();
+            }
+        }
         return view('admin.orders.archive', compact('orders'));
     }
 

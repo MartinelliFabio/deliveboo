@@ -109,19 +109,14 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-
-        if (!Auth::user()->isAdmin() && $shopkeeper->user_id !== Auth::id()) {
-
-            if (Auth::user()->isAdmin()) {
-                abort(403);
-            }
-            $shopkeeper_id = Shopkeeper::where('user_id', Auth::user()->id)->first()->id;
-            if ($product->shopkeeper_id !== $shopkeeper_id) {
-
-                abort(403);
-            }
-            return view('admin.products.edit', compact('product'));
+        if (Auth::user()->isAdmin()) {
+            abort(403);
         }
+        $shopkeeper_id = Shopkeeper::where('user_id', Auth::user()->id)->first()->id;
+        if ($product->shopkeeper_id !== $shopkeeper_id) {
+            abort(403);
+        }
+        return view('admin.products.edit', compact('product'));
     }
 
     /**
@@ -147,7 +142,7 @@ class ProductController extends Controller
         $updated = $product->name;
         $product->update($data);
 
-        return redirect()->route('admin.products.index')->with('message', "$updated updated successfully");
+        return redirect()->route('admin.products.index')->with('message', "$updated aggirnato con successo!");
     }
 
     /**
@@ -164,8 +159,16 @@ class ProductController extends Controller
 
     public function archive() 
     {
-        $products = Product::onlyTrashed()->get();
-
+        if (Auth::user()->isAdmin()) {
+            $products = Product::paginate(10);
+        }else{
+            if(!Shopkeeper::where('user_id', Auth::user()->id)->exists()) {
+                abort(403);
+            } else {
+                $shopkeeper = Shopkeeper::where('user_id', Auth::user()->id)->first();
+                $products = Product::where('shopkeeper_id', $shopkeeper->id)->onlyTrashed()->get();
+            }
+        }
         return view('admin.products.archive', compact('products'));
 
     }
