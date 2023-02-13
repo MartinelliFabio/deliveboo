@@ -2,7 +2,7 @@
 @section('content')
 
     <section class="container my-5">
-    <h1 class="mb-4">Edit Product: {{$product->name}}</h1>
+    <h1 class="mb-4 text-capitalize">{{$product->name}}</h1>
         <div class="row bg-white">
             <div class="col-12">
                 <form action="{{ route('admin.products.update', $product->slug) }}" method="POST" enctype="multipart/form-data" class="form-crud">
@@ -59,8 +59,8 @@
                             @enderror
                         </div>
                     </div>                    
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-danger">Reset</button>
+                    <button type="submit" class="btn btn-primary my-btn">Invia</button>
+                    <button type="reset" class="btn btn-danger">Resetta</button>
                 </form>
             </div>
         </div>

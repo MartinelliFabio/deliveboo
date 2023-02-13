@@ -1,0 +1,24 @@
+#login {
+    .card-header {
+        background-color: $my-blue;
+        color: $yellow;
+        font-size: 20px;
+
+        img {
+            width: 50px;
+        }
+    }
+
+    .btn-link {
+        font-size: 12px;
+    }
+
+    .form-check-label {
+        color: gray;
+    }
+
+    .redirect-register {
+        color: gray;
+        font-size: 14px;
+    }
+}

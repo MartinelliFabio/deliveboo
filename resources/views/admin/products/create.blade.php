@@ -2,14 +2,14 @@
 @section('content')
 
     <section class="container my-5" id="create">
-    <h1 class="mb-4">Create Products</h1>
+    <h1 class="mb-4">Inserisci Prodotto</h1>
         <div class="row bg-white">
             <div class="col-12">
                 <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data" class="form-crud">
                     @csrf
                     <div class="mb-3">
                         {{-- Nome Prodotto --}}
-                        <label for="name" class="form-label">Name <span>*</span></label>
+                        <label for="name" class="form-label">Nome <span>*</span></label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" required maxlength="100" minlength="3">
                         @error('name')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -47,7 +47,7 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary my-btn">Submit</button>
                     <button type="reset" class="btn btn-danger">Reset</button>
                 </form>
             </div>

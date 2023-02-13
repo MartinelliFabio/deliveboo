@@ -23,7 +23,11 @@ use App\Http\Controllers\Admin\TypeController;
 */
 
 Route::get('/', function () {
-    return view('guest.welcome');
+    if(Auth::check()) {
+        return redirect('/admin');
+    } else {
+        return view('auth.login');
+    }
 });
 
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function() {

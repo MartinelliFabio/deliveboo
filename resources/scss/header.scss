@@ -2,8 +2,30 @@
 @use './partials/mixins' as *;
 
 #header {
+    background-color: $my-blue;
+
     .header-nav {
         width: 90%;
         margin: 0 auto;
+    }
+
+    .navbar-toggler {
+        background-color: $yellow;
+    }
+
+    .dropdown-menu {
+        background-color: $my-blue;
+
+        a:hover {
+            background-color: $yellow;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #header {
+        .header-nav {
+            margin: 0 50px 0 20px;
+        }
     }
 }
