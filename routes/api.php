@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\Api\Orders\OrderController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ShopkeeperController;
 use Illuminate\Http\Request;
@@ -24,4 +26,7 @@ Route::get('products', [ProductController::class, 'index']);
 Route::get('products/{slug}', [ProductController::class, 'show']);
 Route::get('shopkeepers', [ShopkeeperController::class, 'index']);
 Route::get('shopkeepers/{slug}', [ShopkeeperController::class, 'show']);
+
+Route::get('orders/generate', [OrderController::class, 'generate']);
+Route::post('orders/make/payment', [OrderController::class, 'makePayment']);
 
