@@ -28,10 +28,37 @@
                         <label for="address" class="form-label">Indirizzo <span>*</span></label>
                         <input type="text" class="form-control" id="address" name="address" required>
                     </div>
+                    {{-- Tipo Ristorante --}}
+                    <div class="mb-3 row">
+                        <label for="types" class="form-label">Tipo di ristorante <span>*</span></label>
+                        <br>
+                            @foreach ($types as $type)
+                                <div class="col-6 col-md-4 col-lg-3 col-xxl-2">
+                                    <input type="checkbox" name="types[]" value="{{ $type->id }}">
+                                    <span class="text-capitalize">{{ $type->name }}</span>
+                                </div>
+                            @endforeach
+                        </select>
+                    </div>
                     {{-- Orario Ristorante --}}
-                    <div class="mb-3">
-                        <label for="hour" class="form-label">Orario <span>*</span></label>
-                        <input type="text" class="form-control" id="hour" name="hour" required>
+                    <div class="mb-3 d-flex">
+                        <div class="me-3">
+                            <label for="hour_open" class="form-label">Orario Apertura <span>*</span></label>
+                            <input type="time" class="form-control @error('hour_open') is-valid @enderror" id="hour_open" name="hour_open" min="11:00" max="23:00" required>
+                            @error('hour_open')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                            <small>Orario apertura dalle 11:00</small>
+                        </div>
+
+                        <div class="mx-3">
+                            <label for="hour_close" class="form-label">Orario Chiusura <span>*</span></label>
+                            <input type="time" class="form-control @error('hour_close') is-valid @enderror" id="hour_close" name="hour_close" min="11:00" max="23:00" required>
+                            @error('hour_close')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                            <small>Orario chiusura alle 23:00</small>
+                        </div>
                     </div>
                     {{-- Immagine Ristorante --}}
                     <div class="mb-4">

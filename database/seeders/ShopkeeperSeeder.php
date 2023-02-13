@@ -25,7 +25,8 @@ class ShopkeeperSeeder extends Seeder
             $new_shopkeeper->p_iva = $shopkeeper['p_iva'];
             $new_shopkeeper->image = $shopkeeper['image'];
             $new_shopkeeper->address = $shopkeeper['address'];
-            $new_shopkeeper->hour = $shopkeeper['hour'];
+            $new_shopkeeper->hour_open = $shopkeeper['hour_open'];
+            $new_shopkeeper->hour_close = $shopkeeper['hour_close'];
             // $new_shopkeeper->user_id = $key + 1;
             $new_shopkeeper->user_id = $shopkeeper['user_id'];
             $new_shopkeeper->save();

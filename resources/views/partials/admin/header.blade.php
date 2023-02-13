@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light shadow-sm" id="header">
     <div class="container header-nav p-0">
-        <a class="navbar-brand d-flex align-items-center" href="{{ url('/admin') }}">
+        <a class="navbar-brand d-flex align-items-center" href="{{ url('/admin/shopkeepers') }}">
             <div class="logo_back_end">
                 <img src="{{ asset('storage/images/Deliveboo_y-01.png') }}" alt="">
             </div>
@@ -14,7 +14,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="{{url('/admin') }}">{{ __('Home') }}</a>
+                    <a class="nav-link text-white" href="{{url('/admin/shopkeepers') }}">{{ __('Home') }}</a>
                 </li>
             </ul>
 

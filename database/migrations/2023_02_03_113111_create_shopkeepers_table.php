@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('p_iva', 20)->required();
             $table->string('image')->nullable();
             $table->string('address', 100)->required();
-            $table->string('hour', 50)->required();
+            $table->time('hour_open')->required();
+            $table->time('hour_close')->required();
             $table->foreignId('user_id')->cascadeOnUpdate()->nullOnDelete()->nullable()->constrained();
             $table->timestamps();
         });
