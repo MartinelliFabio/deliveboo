@@ -27,7 +27,8 @@ class StoreShopkeeperRequest extends FormRequest
             'name' => 'required|unique:shopkeepers|max:100|min:3',
             'p_iva' => 'required|max:11|min:3',
             'image' => 'nullable|image|max:255',
-            'hour' => 'required',
+            'hour_open' => 'required|date_format:H:i',
+            'hour_close' => 'required|date_format:H:i',
             'address' => 'required',
         ];
         
@@ -39,10 +40,17 @@ class StoreShopkeeperRequest extends FormRequest
             'name.min' => 'Il nome deve essere lungo almeno :min caratteri.',
             'name.max' => 'Il nome non può superare i :max caratteri.',
             'name.unique:shopkeepers' => 'Il nome esiste già',
+
             'p_iva.required' => 'La partita iva è obbligatoria.',
             'p_iva.max' => 'La partita iva non deve superare :max',
             'p_iva.min' => 'La partita iva non deve essere minore di :min',
-            'hour.required' => 'L\'orario è obbligatorio.',
+
+            'hour_open.required' => 'L\'orario di apertura è obbligatorio.',
+            'hour_open.date_format' => 'L\'orario di apertura deve essere nel formato hh:mm.',
+            
+            'hour_close.required' => 'L\'orario di chiusura è obbligatorio.',
+            'hour_close.date_format' => 'L\'orario di chiusura deve essere nel formato hh:mm.',
+            
             'address.required' => 'L\'indirizzo è obbligatorio.',
         ];
     }

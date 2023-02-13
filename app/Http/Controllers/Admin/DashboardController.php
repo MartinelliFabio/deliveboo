@@ -20,7 +20,7 @@ class DashboardController extends Controller
         } else {
             $shopkeeper = Shopkeeper::where('user_id', Auth::user()->id)->first(); 
             if ($shopkeeper) {
-                return view('admin.dashboard', compact('shopkeeper'));
+                return view('admin.shopkeepers.index', compact('shopkeeper'));
             } else {
                 return redirect()->route('admin.shopkeepers.create');
             }

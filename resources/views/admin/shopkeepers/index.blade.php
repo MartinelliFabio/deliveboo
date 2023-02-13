@@ -1,59 +1,26 @@
 @extends('layouts.admin')
 
 @section('content')
-
-    <div id="table-list">
-        
-        <div class="table-container">
-            <h1 class="mb-5">Ristoranti</h1>
-            @if(session()->has('message'))
-            <div class="alert alert-success mb-3 mt-3 w-75 m-auto">
-                {{ session()->get('message') }}
-            </div>
+    <section class="container my-5" id="index-shopkeeper">
+        <div class="shopkeeper-card">
+            @if(Str::contains($shopkeeper->image, 'shopkeeper_images/'))
+                <img class="shadow" src="{{ asset('storage/' . $shopkeeper->image) }}" alt="{{ $shopkeeper->name }}">
+            @elseif($shopkeeper->image)
+                <img class="shadow" src="{{ $shopkeeper->image }}" alt="{{ $shopkeeper->name }}">
+            @else
+                <img class="shadow" src="https://dummyimage.com/1200x840/000/fff" alt="C/O https://dummyimage.com/">
             @endif
-            {{-- @if(!Auth::user()->isAdmin())
-                <a href="{{route('admin.shopkeepers.create')}}" class="text-white"><button class="btn btn-primary mb-2"><i class="fa-solid fa-plus"></i></button></a>
-            @endif --}}
-            <table class="mb-2">
-                <thead>
-                    <tr>
-                        <th class="bl-hidden" scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th class="bl-hidden" scope="col">P.IVA</th>
-                        <th scope="col">Address</th>
-                        @if(!Auth::user()->isAdmin())
-                            <th scope="col">Edit</th>
-                        @endif
-                        {{-- @if(!Auth::user()->isAdmin())
-                            <th scope="col">Delete</th>
-                        @endif --}}
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($shopkeepers as $shopkeeper)
-                        <tr>
-                            <th class="bl-hidden" scope="row">{{$shopkeeper->id}}</th>
-                            <td class="text-capitalize"><a href="{{route('admin.shopkeepers.show', $shopkeeper->slug)}}" title="View shopkeeper">{{$shopkeeper->name}}</a></td>
-                            <td class="bl-hidden">IT {{$shopkeeper->p_iva}}</td>
-                            <td class="">{{$shopkeeper->address}}</td>
-                            @if(!Auth::user()->isAdmin())
-                                <td><a class="link-secondary" href="{{route('admin.shopkeepers.edit', $shopkeeper->slug)}}" title="Edit shopkeeper"><i class="fa-solid fa-pen"></i></a></td>
-                            @endif
-                            {{-- @if(!Auth::user()->isAdmin())
-                                <td>
-                                    <form action="{{route('admin.shopkeepers.destroy', $shopkeeper->slug)}}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="delete-button btn btn-danger" data-item-title="{{$shopkeeper->name}}"><i class="fa-solid fa-trash-can"></i></button>
-                                    </form>
-                                </td>
-                            @endif --}}
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            {{ $shopkeepers->links('vendor.pagination.bootstrap-5') }}
-            @include('partials.admin.modal')
+            <h1 class="fs-1 mb-3 text-capitalize">{{$shopkeeper->name}}</h1>
+            <p class="mb-2 text-capitalize"><span class="fw-bold">Indirizzo:</span> {{$shopkeeper->address}}</p>
+            <p class="mb-2 text-capitalize"><span class="fw-bold">Partita IVA: </span> IT {{$shopkeeper->p_iva}}</p>
+            <p class="mb-2 text-capitalize">
+                <span class="fw-bold">Tipi:</span>
+                @foreach($shopkeeper->types as $type)
+                    {{$type->name}}
+                @endforeach
+            </p>
+            <p class="mb-2 text-capitalize"><span class="fw-bold">Orario di apertura:</span> {{$shopkeeper->hour_open}}</p>
+            <p class="mb-2 text-capitalize"><span class="fw-bold">Orario di chiusura:</span> {{$shopkeeper->hour_close}}</p>
         </div>
-    </div>
+    </section>
 @endsection

@@ -6,6 +6,7 @@ use App\Models\Shopkeeper;
 use App\Http\Requests\StoreShopkeeperRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateShopkeeperRequest;
+use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,11 +20,12 @@ class ShopkeeperController extends Controller
     public function index()
     {
         if(Auth::user()->isAdmin()){
-            $shopkeepers= Shopkeeper::paginate(5);
+            $shopkeeper= Shopkeeper::paginate(5);
         } else {
-            $shopkeepers = Shopkeeper::where('user_id', Auth::user()->id)->paginate(5);
+            $shopkeeper = Shopkeeper::where('user_id', Auth::user()->id)->first();
         }
-        return view('admin.shopkeepers.index', compact('shopkeepers'));
+        $types = Type::all();
+        return view('admin.shopkeepers.index', compact('shopkeeper', 'types'));
     }
 
     /**
@@ -36,7 +38,8 @@ class ShopkeeperController extends Controller
         if(Shopkeeper::where('user_id', Auth::user()->id)->exists()) {
             abort(403);
         }
-        return view('admin.shopkeepers.create', compact('shopkeeper'));
+        $types = Type::all();
+        return view('admin.shopkeepers.create', compact('shopkeeper', 'types'));
     }
 
     /**
@@ -56,8 +59,14 @@ class ShopkeeperController extends Controller
         $path = Storage::put('shopkeeper_images', $request->image);
         $data['image'] = $path;
     }
+    
     $new_shopkeeper = Shopkeeper::create($data);
-    return redirect()->route('admin.shopkeepers.show', $new_shopkeeper->slug);
+
+    if ($request->has('types')) {
+        $new_shopkeeper->types()->attach($request->types);
+    }
+
+    return redirect()->route('admin.shopkeepers.index', $new_shopkeeper->slug);
     }
 
     /**
