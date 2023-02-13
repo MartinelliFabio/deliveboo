@@ -2,7 +2,7 @@
 @section('content')
 
     <section class="container my-5">
-    <h1 class="mb-4">Edit Shopkeeper: {{$shopkeeper->name}}</h1>
+    <h1 class="mb-4">{{$shopkeeper->name}}</h1>
         <div class="row bg-white">
             <div class="col-12">
                 <form action="{{ route('admin.shopkeepers.update', $shopkeeper->slug) }}" method="POST" enctype="multipart/form-data" class="form-crud">
@@ -10,7 +10,7 @@
                     @method('PUT')
                     <div class="mb-3">
                         {{-- Nome Prodotto --}}
-                        <label for="name" class="form-label">Name <span>*</span></label>
+                        <label for="name" class="form-label">Nome <span>*</span></label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{old('name', $shopkeeper->name)}}" required maxlength="100" minlength="3">
                         @error('name')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -26,12 +26,12 @@
                     </div>
                     {{-- Indirizzo Ristorante --}}
                     <div class="mb-3">
-                        <label for="address" class="form-label">Indirizzo</label>
+                        <label for="address" class="form-label">Indirizzo <span>*</span></label>
                         <input type="text" class="form-control" id="address" name="address" {{old('address', $shopkeeper->address)}}>
                     </div>
                     {{-- Orario Ristorante --}}
                     <div class="mb-3">
-                        <label for="address" class="form-label">Orario</label>
+                        <label for="address" class="form-label">Orario <span>*</span></label>
                         <input type="text" class="form-control" id="address" name="address" {{old('hour', $shopkeeper->hour)}}>
                     </div>
                     {{-- Immagine Ristorante --}}
@@ -53,8 +53,8 @@
                             @enderror
                         </div>
                     </div>                 
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-danger">Reset</button>
+                    <button type="submit" class="btn btn-primary my-btn">Invia</button>
+                    <button type="reset" class="btn btn-danger">Resetta</button>
                 </form>
             </div>
         </div>

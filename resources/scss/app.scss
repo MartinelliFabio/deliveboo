@@ -6,12 +6,18 @@
 @import './products/show';
 @import './shopkeepers/show';
 @import './header.scss';
+@import './auth/register.scss';
+@import './auth/login.scss';
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+
+// body {
+//     background-color: $yellow;
+// }
 
 ul {
     list-style: none;
@@ -31,6 +37,20 @@ img {
     width: 60px;
 }
 
+.logo_back_end {
+    width: 150px;
+}
+
+.my-btn {
+    background-color: $my-blue;
+    border-color: $my-blue;
+
+    &:hover {
+        background-color: #222831cb;
+        border-color: #222831cb;
+    }
+}
+
 #table-list {
     margin-top: 50px;
 
@@ -48,7 +68,7 @@ img {
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 
             thead tr {
-                background-color: $light-blue;
+                background-color: $my-blue;
                 color: $white;
                 text-align: left;
             }
@@ -68,12 +88,12 @@ img {
             }
 
             tbody tr:last-of-type {
-                border-bottom: 2px solid $light-blue;
+                border-bottom: 2px solid $my-blue;
             }
 
             tbody tr.active-row {
                 font-weight: bold;
-                color: $light-blue;
+                color: $my-blue;
             }
 
             button {
@@ -97,6 +117,17 @@ img {
     }
 }
 
-// .bordo {
-//     border: 1px solid red;
-// }
+.pagination>li>a,
+.pagination>li>span {
+    color: $my-blue; // use your own color here
+}
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {
+    background-color: $my-blue;
+    border-color: $my-blue;
+}

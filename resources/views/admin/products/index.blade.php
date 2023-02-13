@@ -11,7 +11,7 @@
         </div>
         @endif
         @if(!Auth::user()->isAdmin())
-            <a href="{{route('admin.products.create')}}" class="text-white"><button class="btn btn-primary mb-2"><i class="fa-solid fa-plus"></i></button></a>
+            <a href="{{route('admin.products.create')}}" class="text-white"><button class="btn btn-primary mb-2 my-btn"><i class="fa-solid fa-plus"></i></button></a>
         @endif
         <table class="mb-2">
             <thead>
