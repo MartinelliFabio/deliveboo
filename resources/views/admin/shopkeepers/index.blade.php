@@ -10,7 +10,10 @@
             @else
                 <img class="shadow" src="https://dummyimage.com/1200x840/000/fff" alt="C/O https://dummyimage.com/">
             @endif
-            <h1 class="fs-1 mb-3 text-capitalize">{{$shopkeeper->name}}</h1>
+            <div class="text-center my-3 d-flex justify-content-center align-items-center">
+                <h1 class="fs-1 text-capitalize me-3">{{$shopkeeper->name}}</h1>
+                <a class="link-secondary" href="{{route('admin.shopkeepers.edit', $shopkeeper->slug)}}" title="Edit shopkeeper"><i class="fa-solid fa-pen fs-4"></i></a>
+            </div>
             <p class="mb-2 text-capitalize"><span class="fw-bold">Indirizzo:</span> {{$shopkeeper->address}}</p>
             <p class="mb-2 text-capitalize"><span class="fw-bold">Partita IVA: </span> IT {{$shopkeeper->p_iva}}</p>
             <p class="mb-2 text-capitalize">
