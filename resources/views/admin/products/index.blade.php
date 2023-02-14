@@ -17,15 +17,15 @@
             <thead>
                 <tr>
                     <th class="bl-hidden" scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th class="" scope="col">Price</th>
+                    <th scope="col">Nome</th>
+                    <th class="" scope="col">Prezzo</th>
                     <th class="bl-hidden" scope="col">Disponibilità</th>
                     <th class="bl-hidden" scope="col">Ingredienti</th>
                     @if(!Auth::user()->isAdmin())
-                        <th scope="col">Edit</th>
+                        <th scope="col">Modifica</th>
                     @endif
                     @if(!Auth::user()->isAdmin())
-                        <th scope="col">Delete</th>
+                        <th scope="col">Cancella</th>
                     @endif
                 </tr>
             </thead>

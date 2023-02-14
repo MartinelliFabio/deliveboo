@@ -47,8 +47,8 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary my-btn">Submit</button>
-                    <button type="reset" class="btn btn-danger">Reset</button>
+                    <button type="submit" class="btn btn-primary my-btn">Invia</button>
+                    <button type="reset" class="btn btn-danger">Resetta</button>
                 </form>
             </div>
         </div>

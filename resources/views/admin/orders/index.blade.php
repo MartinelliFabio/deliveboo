@@ -16,11 +16,11 @@
                 <tr>
                     <th class="bl-hidden" scope="col">#</th>
                     <th scope="col">Nr. Ord</th>
-                    <th class="" scope="col">Price Tot</th>
-                    <th class="bl-hidden" scope="col">Address</th>
-                    <th class="bl-hidden" scope="col">Status</th>
+                    <th class="" scope="col">Prezzo Totale</th>
+                    <th class="bl-hidden" scope="col">Indirizzo</th>
+                    <th class="bl-hidden" scope="col">Stato</th>
                     {{-- <th scope="col">Edit</th> --}}
-                    <th scope="col">Delete</th>
+                    <th scope="col">Cancella</th>
                 </tr>
             </thead>
             <tbody>
