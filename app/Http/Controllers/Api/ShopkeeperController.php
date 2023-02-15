@@ -56,6 +56,4 @@ class ShopkeeperController extends Controller
             'results' => '$shopkeepers'
         ]);
     }
-
-
 }
