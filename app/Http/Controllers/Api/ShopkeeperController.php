@@ -10,7 +10,7 @@ class ShopkeeperController extends Controller
 {
     public function index()
     {
-        $shopkeepers = Shopkeeper::all();
+        $shopkeepers = Shopkeeper::with('types')->get();
         return response()->json([
             'success' => true,
             'results' => $shopkeepers
@@ -20,7 +20,7 @@ class ShopkeeperController extends Controller
     public function show($slug)
     {
         $shopkeeper = Shopkeeper::with('products')->where('slug', $slug)->first();
-        
+
         if ($shopkeeper) {
             return response()->json([
                 'success' => true,
@@ -29,7 +29,31 @@ class ShopkeeperController extends Controller
         } else
             return response()->json([
                 'success' => false,
-                'results' => 'no shopkeeper'
+                'results' => 'nessun negozio'
             ]);
+    }
+
+    public function filterRestaurants(Request $request)
+    {
+        $type_id = $request->input('type_id', []);
+        $shopkeepers = Shopkeeper::where(function ($query) use ($type_id) {
+            foreach ($type_id as $type_id) {
+                $query->orWhereHas('types', function ($subquery) use ($type_id) {
+                    $subquery->where('type_id', $type_id);
+                }
+                );
+            }
+        })->get();
+        if ($shopkeepers->isEmpty()) {
+            return response()->json([
+                'success' => false,
+                'results' => 'Non trovato'
+            ]);
+        }
+
+        return response()->json([
+            'success' => true,
+            'results' => '$shopkeepers'
+        ]);
     }
 }
