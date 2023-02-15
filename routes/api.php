@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ShopkeeperController;
+use App\Http\Controllers\Api\TypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,4 +25,5 @@ Route::get('products', [ProductController::class, 'index']);
 Route::get('products/{slug}', [ProductController::class, 'show']);
 Route::get('shopkeepers', [ShopkeeperController::class, 'index']);
 Route::get('shopkeepers/{slug}', [ShopkeeperController::class, 'show']);
-
+Route::get('types', [TypeController::class, 'index']);
+Route::get('types/{slug}', [TypeController::class, 'show']);
