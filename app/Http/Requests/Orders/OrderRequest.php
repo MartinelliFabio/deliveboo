@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Orders;
 
-use App\Rules\ValidProduct;
+use App\Rules\ValidOrder;
 use Illuminate\Foundation\Http\FormRequest;
 
 class OrderRequest extends FormRequest
@@ -28,7 +28,7 @@ class OrderRequest extends FormRequest
             'token' => 'required',
             'order' => [
                 'required',
-                new ValidProduct()
+                new ValidOrder()
                 ]
         ];
     }
