@@ -4,7 +4,7 @@
     <section class="container my-5" id="show-product">
         <div class="mb-5" id="a-shopkeepers"><a href="{{route('admin.products.index')}}" class="transition"><i class="fa-solid fa-circle-arrow-left"></i> Ritorna ai Prodotti</a></div>
         <div class="product-card">
-            @if(Str::contains($product->image, 'product_images/'))
+            @if(Str::contains($product->image, 'products_images/'))
                 <img class="shadow" src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
             @elseif($product->image)
                 <img class="shadow" src="{{ $product->image }}" alt="{{ $product->name }}">

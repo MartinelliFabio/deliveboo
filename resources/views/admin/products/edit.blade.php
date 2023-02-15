@@ -58,6 +58,9 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+                    </div>
+                    <div class="mb-3 obbligatorio">
+                        <span>*</span> <p class="d-inline">i campi sono obbligatori</p>
                     </div>                    
                     <button type="submit" class="btn btn-primary my-btn">Invia</button>
                     <button type="reset" class="btn btn-danger">Resetta</button>
