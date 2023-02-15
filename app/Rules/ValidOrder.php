@@ -2,7 +2,7 @@
 
 namespace App\Rules;
 
-use App\Models\Product;
+use App\Models\Order;
 use Illuminate\Contracts\Validation\Rule;
 
 class ValidProduct implements Rule
@@ -26,8 +26,7 @@ class ValidProduct implements Rule
      */
     public function passes($attribute, $value)
     {
-        // $product = Product::find($value);
-        if(Product::find($value)){
+        if(Order::find($value)){
             return true;
         }
         return false;
@@ -40,6 +39,6 @@ class ValidProduct implements Rule
      */
     public function message()
     {
-        return 'Prodotto non trovato';
+        return 'Ordine non trovato';
     }
 }

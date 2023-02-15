@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\Orders;
 
-use App\Models\Product;
+use App\Models\Order;
 use Braintree\Gateway;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -25,10 +25,10 @@ class OrderController extends Controller
 
     public function makePayment(OrderRequest $request, Gateway $gateway){
 
-        $product = Product::find($request->product);
+        $order = Order::find($request->order);
 
         $result = $gateway->transaction()->sale([
-            'amount' => $product->price,
+            'amount' => $order->price,
             'paymentMethodNonce' => $request->token,
             'options' => [
                 'submitForSettlement' => true
