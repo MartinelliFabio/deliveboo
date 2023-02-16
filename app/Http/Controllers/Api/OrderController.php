@@ -13,7 +13,7 @@ class OrderController extends Controller
         $today = date("Ymd");
         $rand = strtoupper(substr(uniqid(sha1(time())),0,4));
         $code = $today . $rand;
-        $new_order->code = $code;
+        $new_order->nr_ord = $code;
         $new_order->name = $request->name;
         $new_order->address = $request->address;
         $new_order->email = $request->email;
