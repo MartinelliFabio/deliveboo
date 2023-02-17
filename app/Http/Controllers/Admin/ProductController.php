@@ -142,7 +142,7 @@ class ProductController extends Controller
         $updated = $product->name;
         $product->update($data);
 
-        return redirect()->route('admin.products.index')->with('message', "$updated aggirnato con successo!");
+        return redirect()->route('admin.products.index')->with('message', "$updated aggiornato con successo!");
     }
 
     /**
@@ -157,7 +157,7 @@ class ProductController extends Controller
         return redirect()->route('admin.products.index')->with('message', "$product->name cancellato con successo!");
     }
 
-    public function archive() 
+    public function archive()
     {
         if (Auth::user()->isAdmin()) {
             $products = Product::paginate(10);
