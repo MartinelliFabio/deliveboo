@@ -1,9 +1,10 @@
 <?php
-use App\Http\Controllers\Api\ProductController;
-use App\Http\Controllers\Api\ShopkeeperController;
-use App\Http\Controllers\Api\TypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\TypeController;
+use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\ShopkeeperController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,8 @@ Route::get('shopkeepers', [ShopkeeperController::class, 'index']);
 Route::get('shopkeepers/{slug}', [ShopkeeperController::class, 'show']);
 Route::get('types', [TypeController::class, 'index']);
 Route::get('types/{slug}', [TypeController::class, 'show']);
+
+Route::post('orders', [OrderController::class, 'orders']);
+
+Route::get('order', [OrderController::class, 'generate']);
+Route::post('order/payment', [OrderController::class, 'makePayment']);

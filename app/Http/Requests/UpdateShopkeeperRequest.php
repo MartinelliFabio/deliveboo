@@ -31,7 +31,7 @@ class UpdateShopkeeperRequest extends FormRequest
             'address' => 'required',
         ];
     }
-    
+
     public function messages()
     {
         return [
@@ -47,4 +47,4 @@ class UpdateShopkeeperRequest extends FormRequest
         ];
     }
 }
-}
+
