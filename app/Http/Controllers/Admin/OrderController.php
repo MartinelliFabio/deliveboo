@@ -34,8 +34,9 @@ class OrderController extends Controller
         $shopkeeper_id = $shopkeeper->id;
 
         $orders = Order::whereHas('products', function ($query) use ($shopkeeper_id) {
+            $query->withTrashed();
             $query->where('shopkeeper_id', $shopkeeper_id);
-        })->orderBy('datetime')->paginate(10);
+        })->orderBy('id', 'DESC')->paginate(10);
 
         return view('admin.orders.index', compact('orders'));
     }

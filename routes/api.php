@@ -29,7 +29,7 @@ Route::get('shopkeepers/{slug}', [ShopkeeperController::class, 'show']);
 Route::get('types', [TypeController::class, 'index']);
 Route::get('types/{slug}', [TypeController::class, 'show']);
 
-Route::post('orders', [OrderController::class, 'orders']);
+Route::post('purchase', [OrderController::class, 'purchase']);
 
 Route::get('order', [OrderController::class, 'generate']);
 Route::post('order/payment', [OrderController::class, 'makePayment']);

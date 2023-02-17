@@ -26,7 +26,7 @@ class StoreOrderRequest extends FormRequest
     {
             return [
             'token' => 'required',
-            'dishId' => ['required', new ValidationProducts()]
+            'productId' => ['required', new ValidationProducts()]
             ];
     }
 }
