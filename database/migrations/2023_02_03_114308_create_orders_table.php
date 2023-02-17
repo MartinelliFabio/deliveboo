@@ -18,7 +18,7 @@ return new class extends Migration
             $table->smallInteger('nr_ord')->unique();
             $table->string('slug');
             $table->float('price_tot', 6, 2)->unsigned();
-            $table->string('email', 100)->unique()->required();
+            $table->string('email', 100)->required();
             $table->string('address', 255)->required();
             $table->string('phone',50);
             $table->string('name', 100);
