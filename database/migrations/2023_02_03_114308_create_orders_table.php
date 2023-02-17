@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->smallInteger('nr_ord')->unique();
+            $table->string('nr_ord', 15)->unique();
             $table->string('slug');
             $table->float('price_tot', 6, 2)->unsigned();
             $table->string('email', 100)->required();
