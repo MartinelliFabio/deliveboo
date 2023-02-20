@@ -19,6 +19,9 @@ class ShopkeeperController extends Controller
      */
     public function index()
     {
+        if (!Auth::user()->shopkeeper) {
+            abort(403, 'Non hai ancora un Ristorante');
+        }
         if(Auth::user()->isAdmin()){
             $shopkeeper= Shopkeeper::paginate(5);
         } else {

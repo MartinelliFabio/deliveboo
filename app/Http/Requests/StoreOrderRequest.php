@@ -25,8 +25,8 @@ class StoreOrderRequest extends FormRequest
     public function rules()
     {
             return [
-            'token' => 'required',
-            'productId' => ['required', new ValidationProducts()]
+                'token' => 'required',
+                'productId' => ['required', new ValidationProducts()]
             ];
     }
 }

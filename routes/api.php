@@ -33,3 +33,5 @@ Route::post('purchase', [OrderController::class, 'purchase']);
 
 Route::get('order', [OrderController::class, 'generate']);
 Route::post('order/payment', [OrderController::class, 'makePayment']);
+
+Route::post('checkform', [OrderController::class, 'checkForm']);

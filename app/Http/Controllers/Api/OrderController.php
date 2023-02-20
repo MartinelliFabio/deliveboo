@@ -22,7 +22,7 @@ class OrderController extends Controller
             'surname' => 'required|max:100',
             'email' => 'required|email|max:100',
             'address' => 'required|max:255',
-            'phone' => 'required|regex:/^([0-9]*)$/|max:50',
+            'phone' => 'required|regex:/^([0-9]*)$/|size:10',
         ],);
 
         if($validator->fails()){
@@ -60,6 +60,7 @@ class OrderController extends Controller
         $new_order->products()->attach($list_item);
 
         return response()->json([
+            'success' => true,
             'results' => $request->all(),
             'order' => $new_order
         ]);
@@ -99,5 +100,41 @@ class OrderController extends Controller
         ];
         return response()->json($data);
     }
+    public function checkForm(Request $request){
+        $data = $request->all();
 
+        $validator = Validator::make($data, [
+            'name' => 'required|max:100',
+            'surname' => 'required|max:100',
+            'email' => 'required|email|max:100',
+            'address' => 'required|max:255',
+            'phone' => 'required|regex:/^([0-9]*)$/|size:10',
+        ],[
+            'name.required' =>  'Il nome è obbligatorio',
+            'name.max' =>  'Il nome non può superare i :max caratteri',
+            'surname.required' =>  'Il cognome è obbligatorio',
+            'surname.max' =>  'Il cognome non può superare i :max caratteri',
+            'email.required' =>  'L\'email è obbligatoria',
+            'email.max' =>  'L\'email non può superare i :max caratteri',
+            'email.email' =>  'L\'email deve contenere @ e .',
+            'address.required' =>  'L\'indirizzo è obbligatorio',
+            'address.max' =>  'L\'indirizzo non può superare i :max caratteri',
+            'phone.required' =>  'Il numero di telefono è obbligatorio',
+            'phone.size' =>  'Il numero di telefono deve essere di :size caratteri',
+            'phone.regex' =>  'Il numero di telefono deve contenere solo numeri',
+
+        ]);
+
+        if($validator->fails()){
+            return response()->json([
+                'success' => false,
+                'errors' => $validator->errors()
+            ]); 
+        }else{
+            return response()->json([
+                'success' => true,
+            ]); 
+        }
+
+    }
 }
