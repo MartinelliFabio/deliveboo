@@ -1,10 +1,5 @@
 <?php
-
-use App\Http\Controllers\Api\ProductController;
-use App\Http\Controllers\Api\ShopkeeperController;
 use App\Http\Controllers\Api\LeadController;
-use App\Http\Controllers\Api\TypeController;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\TypeController;
