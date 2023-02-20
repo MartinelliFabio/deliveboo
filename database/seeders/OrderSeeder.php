@@ -21,7 +21,7 @@ class OrderSeeder extends Seeder
         $orders = config('dataseeder.orders');
         foreach ($orders as $order) {
             $new_order = new Order();
-            $new_order->nr_ord = $order['nr_ord'];
+            $new_order->nr_ord = $faker->regexify('[A-Z]{6}[0-9]{6}');
             $new_order->slug =Str::slug($new_order->nr_ord, '-');
             $new_order->price_tot = $order['price_tot'];
             $new_order->email = $faker->safeEmail();
@@ -30,7 +30,7 @@ class OrderSeeder extends Seeder
             $new_order->name = $faker->firstName($gender = null);
             $new_order->surname = $faker->lastName();
             $new_order->status = $order['status'];
-            $new_order->datetime = $faker->time();
+            $new_order->datetime = $faker->dateTimeThisYear();
             $new_order->save();
         }
     }

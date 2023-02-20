@@ -22,14 +22,21 @@ class OrderController extends Controller
      */
     public function index()
     {
+        if (!Auth::user()->shopkeeper) {
+            abort(404, '$Non hai ancora un Ristorante');
+        }
         if (Auth::user()->isAdmin()) {
             $orders = Order::paginate(10);
         }
+
         $shopkeeper = Shopkeeper::where('user_id', Auth::user()->id)->first();
+
         $shopkeeper_id = $shopkeeper->id;
+
         $orders = Order::whereHas('products', function ($query) use ($shopkeeper_id) {
+            $query->withTrashed();
             $query->where('shopkeeper_id', $shopkeeper_id);
-        })->orderBy('datetime')->paginate(10);
+        })->orderBy('datetime', 'DESC')->paginate(10);
 
         return view('admin.orders.index', compact('orders'));
     }
@@ -73,7 +80,17 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        //controllo che l'utente abbia un ristorante
+        if (!Auth::user()->shopkeeper) {
+            abort(404, '$Non hai ancora un Ristorante');
+        }
+        //controllo che il ristoratore stia accedendo solo ai suoi piatti tramite l'id utente
+        $shopkeeper_id = Auth::user()->shopkeeper->id;
+        $products = $order->products()->first();
+        if ($shopkeeper_id !== $products->shopkeeper_id) {
+            abort(403, '$Non sei autorizzato ad accedere');
+        }
+        return view('admin.orders.show', compact('order'));
     }
 
     /**
@@ -111,7 +128,7 @@ class OrderController extends Controller
         return redirect()->route('admin.orders.index')->with('message', "Numero ordine $order->nr_ord cancellato con successo!");
     }
 
-    public function archive() 
+    public function archive()
     {
         if (Auth::user()->isAdmin()) {
             $orders = Order::paginate(10);

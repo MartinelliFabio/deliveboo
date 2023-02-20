@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\ValidationProducts;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreOrderRequest extends FormRequest
@@ -23,8 +24,9 @@ class StoreOrderRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+            return [
+                'token' => 'required',
+                'productId' => ['required', new ValidationProducts()]
+            ];
     }
 }

@@ -19,7 +19,7 @@
                     <th class="" scope="col">Prezzo Totale</th>
                     <th class="bl-hidden" scope="col">Indirizzo</th>
                     <th class="bl-hidden" scope="col">Stato</th>
-                    {{-- <th scope="col">Edit</th> --}}
+                    <th scope="col">Data Ordine</th>
                     <th scope="col">Cancella</th>
                 </tr>
             </thead>
@@ -31,7 +31,7 @@
                         <td class="">{{$order->price_tot}}&nbsp;&euro;</td>
                         <td class="bl-hidden">{{$order->address}}</td>
                         <td class="bl-hidden">{{$order->status}}</td>
-                        {{-- <td><a class="link-secondary" href="{{route('admin.orders.edit', $order->slug)}}" title="Edit order"><i class="fa-solid fa-pen"></i></a></td> --}}
+                        <td>{{$order->datetime}}</td>
                         <td>
                             <form action="{{route('admin.orders.destroy', $order->slug)}}" method="POST">
                             @csrf
